@@ -16,9 +16,6 @@ export class AgregarArbitroPartidoComponent implements OnInit{
 
   constructor(private tempService: TemporadasService) { }
 
-
-
-
   ngOnInit(): void {
     this.idTemporada = +localStorage.getItem('idTemporada')!;
     this.idPartido = +localStorage.getItem('idPartido')!;

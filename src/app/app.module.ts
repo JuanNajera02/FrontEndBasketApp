@@ -9,9 +9,6 @@ import { ArbitrosModule } from './modulos/arbitros/arbitros.module';
 import { AdminLigasModule } from './modulos/admin-ligas/admin-ligas.module';
 import { VistasGeneralesModule } from './modulos/vistas-generales/vistas-generales.module';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent

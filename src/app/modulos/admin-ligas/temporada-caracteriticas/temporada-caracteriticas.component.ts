@@ -13,7 +13,6 @@ import { AgregarArbitroPartidoComponent } from '../agregar-arbitro-partido/agreg
 import { AgregarFechaPartidoComponent } from '../agregar-fecha-partido/agregar-fecha-partido.component';
 import { CaracteristicasPartidosComponent } from '../caracteristicas-partidos/caracteristicas-partidos.component';
 
-
 @Component({
   selector: 'app-temporada-caracteriticas',
   templateUrl: './temporada-caracteriticas.component.html',
@@ -38,7 +37,6 @@ export class TemporadaCaracteriticasComponent implements OnInit{
   equiposTemporada: number = 0;
   enfrentaminetosEquipos: number = 0;
   equiposPlayoff: number = 0;
-
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -108,7 +106,6 @@ export class TemporadaCaracteriticasComponent implements OnInit{
 
   }
 
-
   obtenerArbitrosTemp(idTemporada: number) {
     this.tempService.obtenerArbitros(idTemporada).subscribe({
       next: (data) => {
@@ -122,7 +119,6 @@ export class TemporadaCaracteriticasComponent implements OnInit{
       width: '250px',
     })
   }
-
 
   obtenerEquiposTemp(idTemporada: number) {
     this.tempService.obtenerEquiposTemporada(idTemporada).subscribe({
@@ -152,9 +148,6 @@ export class TemporadaCaracteriticasComponent implements OnInit{
       }
     });
   }
-
-
-
 
   openDialogEquipos(): void {
     this.dialog.open(AgregarEquipoComponent,{
@@ -211,18 +204,7 @@ export class TemporadaCaracteriticasComponent implements OnInit{
       });
     }
 
-
-
-
-
   }
-
-
-
-
-
-
-
 
   obtenerPartidosTemporada() {
     this.tempService.obtenerPartidosTemporada(this.idTemporada).subscribe({
@@ -238,8 +220,6 @@ export class TemporadaCaracteriticasComponent implements OnInit{
       width: '250px',
     })
   }
-
-
 
   agregarFechaPartido(idPartido: number): void {
     localStorage.setItem('idPartido', idPartido.toString());
@@ -267,10 +247,5 @@ export class TemporadaCaracteriticasComponent implements OnInit{
     });
   }
 
-
-
-
-
 }
-
 

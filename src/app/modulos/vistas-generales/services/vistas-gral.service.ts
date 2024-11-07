@@ -6,7 +6,6 @@ import { TokenService } from '../../../services/tokenService/token.service';
 import { Subject } from 'rxjs';
 import { equiposRanking } from '../interfaces/equiposRanking';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -14,8 +13,6 @@ export class VistasGralService {
 
   constructor(private http: HttpClient, private tokenService: TokenService) { }
   private cambioURL = new Subject<string>();
-
-
 
   ObtenerRanking(idTemporada: string): Observable<equiposRanking[]> {
     const headers = this.tokenService.createHeaders();
@@ -26,8 +23,6 @@ export class VistasGralService {
       }
     });
   }
-
-
 
   ObtenerPerfilUsuario(user: any){
     const headers = this.tokenService.createHeaders();
@@ -63,7 +58,6 @@ export class VistasGralService {
       }
     });
   }
-
 
 //http://localhost:8080/estadisticas/equipo-temporada-estadisticas?nombreEquipo=equipes&temporadaId=1
 
@@ -103,7 +97,6 @@ export class VistasGralService {
     });
   }
 
-
   //http://localhost:8080/estadisticas/top-jugadores-tiros-libres?temporadaId=12
   obtenerTopJugadoresTirosLibres(temporada: string) {
     const headers = this.tokenService.createHeaders();
@@ -115,7 +108,6 @@ export class VistasGralService {
       }
     });
   }
-
 
   //http://localhost:8080/estadisticas/top-jugadores-tiros-de-2-puntos?temporadaId=12
   obtenerTopJugadoresTirosDe2Puntos(temporada: string) {
@@ -141,7 +133,6 @@ export class VistasGralService {
     });
   }
 
-
   //http://localhost:8080/estadisticas/top-jugadores-asistencias?temporadaId=12
   obtenerTopJugadoresAsistencias(temporada: string) {
     const headers = this.tokenService.createHeaders();
@@ -165,12 +156,5 @@ export class VistasGralService {
       }
     });
   }
-
-
-
-
-
-
-
 
 }

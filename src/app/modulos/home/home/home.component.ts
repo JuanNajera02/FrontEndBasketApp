@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit{
   usuario: string = localStorage.getItem('usuario') || '';
   tipoUsuario: any = '';
 
-
   ngOnInit(): void {
 
     this.getRoleUser(this.usuario);
@@ -37,11 +36,5 @@ export class HomeComponent implements OnInit{
     });
 }
 
-
 }
-
-
-
-
-
 

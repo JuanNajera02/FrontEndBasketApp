@@ -19,10 +19,7 @@ export class AsignarArbitroComponent implements OnInit{
   mensaje: string = "";
   selectedArbitro: string = '';
 
-
-
   constructor(private tempService: TemporadasService, private route: ActivatedRoute) { }
-
 
   ngOnInit(): void {
     this.idTemporada = +localStorage.getItem('idTemporada')!;
@@ -38,7 +35,6 @@ export class AsignarArbitroComponent implements OnInit{
     });
 
   }
-
 
   asignarArbitroTemp(idTemporada: number, usuario: string) {
 
@@ -63,11 +59,5 @@ export class AsignarArbitroComponent implements OnInit{
       }
     });
   }
-
-
-
-
-
-
 
 }

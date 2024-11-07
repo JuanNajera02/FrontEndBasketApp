@@ -24,7 +24,6 @@ export class BusquedaLigaComponent implements OnInit {
   nombreTemporada: string = '';
   idTemporada: string = '';
 
-
   ngOnInit(): void {
     // Obtén los parámetros de la ruta
     this.route.params.subscribe(params => {
@@ -32,11 +31,9 @@ export class BusquedaLigaComponent implements OnInit {
       this.nombreLiga = params['texto'];
       this.idLigas = params['ligaId'];
 
-
     });
       //this.obtenerPartidosEquipo();
       this.obtenerTemporadas();
-
 
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
@@ -76,9 +73,6 @@ export class BusquedaLigaComponent implements OnInit {
 
     this.router.navigate(['/buscar-temporada', this.nombreLiga, nombreTemp]);
   }
-
-
-
 
   obtenerTemporadaId(nombreTemp: string): Observable<any> {
     return this.searchService.searchTemporadas(nombreTemp);

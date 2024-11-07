@@ -25,7 +25,6 @@ export class HomeAdminLigasComponent implements OnInit{
 
   constructor(public dialog: MatDialog, private ligaService: LigasServiceService, private router: Router, private tempService: TemporadasService) { }
 
-
   openDialog(): void {
     this.dialog.open(CrearLigaComponent,{
       width: '450px',
@@ -52,13 +51,11 @@ export class HomeAdminLigasComponent implements OnInit{
 
   }
 
-
   obtenerLigas() {
     this.ligaService.getLigas(this.usuario).subscribe({
       next: (data) => {
         this.ligasAdministrador = data;
         this.ligasAsignadas = data.length;
-
 
         // Ahora que tienes la lista de ligas, obtén las temporadas para cada una
         this.ligasAdministrador.forEach((liga) => {
@@ -76,12 +73,9 @@ export class HomeAdminLigasComponent implements OnInit{
     });
   }
 
-
   verTemporada(idTemporada: number) {
     this.router.navigate(['/temporadaCaracteristicas', idTemporada]);
   }
-
-
 
   openDialogModificarLiga(idLiga: number, nombreLiga: string): void {
     localStorage.setItem('idLiga', idLiga.toString());
@@ -92,13 +86,11 @@ export class HomeAdminLigasComponent implements OnInit{
     })
   }
 
-
   openDialogCrearTemporada(liga: number){
     localStorage.setItem('idLiga', liga.toString());
     this.dialog.open(CrearTemporadaComponent,{
       width: '600px',
     })
   }
-
 
 }

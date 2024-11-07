@@ -7,7 +7,6 @@ import { NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Usuario } from '../interfaces/Usuario';
 
-
 @Component({
   selector: 'app-busqueda-usuario',
   templateUrl: './busqueda-usuario.component.html',
@@ -28,7 +27,6 @@ export class BusquedaUsuarioComponent implements OnInit {
     genero: '',
     rol: ''
   };
-
 
   ngOnInit(): void {
     // Obtén los parámetros de la ruta
@@ -69,6 +67,5 @@ export class BusquedaUsuarioComponent implements OnInit {
     });
 
   }
-
 
 }

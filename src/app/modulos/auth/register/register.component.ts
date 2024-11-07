@@ -5,8 +5,6 @@ import { authService } from 'src/app/services/authenticateService/auth.service';
 import { Gender } from '../../../models/Login/Gender';
 import { Role } from '../../../models/Login/Role';
 
-
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -33,7 +31,6 @@ export class RegisterComponent {
     private router: Router
   ) { }
 
-
   register() {
     //valida si las 2 contraseñas son iguales
     if (this.registro.password != this.password2.password) {
@@ -58,10 +55,5 @@ export class RegisterComponent {
     });
   }
 
-
 }
-
-
-
-
 

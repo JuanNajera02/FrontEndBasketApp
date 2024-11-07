@@ -11,10 +11,10 @@ import { Router } from '@angular/router';
 })
 export class HomeArbitroComponent implements OnInit {
   
-  partidos:PartidoArbitroHome[] = [];
-  usuarioArbitro:string | undefined;
-  estatusPartidos:EstatusPartido = EstatusPartido.FINALIZADOS;
-  constructor(private arbitroService:ArbitroService,private router: Router) { }
+  partidos: PartidoArbitroHome[] = [];
+  usuarioArbitro: string | undefined;
+  estatusPartidos: EstatusPartido = EstatusPartido.FINALIZADOS;
+  constructor(private arbitroService: ArbitroService,private router: Router) { }
   
   ngOnInit(): void {
     // get usuario from localstorage
@@ -27,9 +27,8 @@ export class HomeArbitroComponent implements OnInit {
 
     });
   }
-  verPartido(idPartido:string){
+  verPartido(idPartido: string){
     this.router.navigate(['/ver-estadisticas-de-jugador-por-partido',idPartido]);
   }
-
 
 }

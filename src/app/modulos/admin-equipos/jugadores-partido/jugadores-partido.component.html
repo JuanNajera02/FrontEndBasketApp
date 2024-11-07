@@ -37,7 +37,7 @@
 
 
     <div class="contenedorMostrarJugadoresEnCampo">
-      <div *ngIf="jugadoresEnCancha.length != 0">
+      <div *ngIf="jugadoresEnCancha.length !== 0">
         <h2>Jugadores en el Campo</h2>
         <div class="jugadores-en-campo">
           <mat-card *ngFor="let jugador of jugadoresEnCancha" class="jugador-card">
@@ -67,7 +67,7 @@
 <div class="ContenedorJugadoresPartidos">
 
     <div class="ContenedoragregarJugadoresPartido">
-      <div *ngIf="jugadoresDeEquipoNoEnPartido.length != 0">
+      <div *ngIf="jugadoresDeEquipoNoEnPartido.length !== 0">
           <form class="cotenedorFormulario">
 
             <mat-form-field>

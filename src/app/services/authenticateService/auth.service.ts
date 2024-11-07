@@ -10,9 +10,6 @@ import { Credential } from '../../models/Login/Credential';
 import { TokenService } from '../tokenService/token.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
-
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -67,15 +64,8 @@ export class authService {
     );
   }
 
-
-  obtenerTipoUsuario(usuario:string | undefined):Observable<string>{
+  obtenerTipoUsuario(usuario: string | undefined): Observable<string>{
     return this.http.get<string>(url + "/usuarios/obtenerTipoUser?usuario="+usuario)
   }
-
-
-
-
-
-
 
 }

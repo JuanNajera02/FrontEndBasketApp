@@ -8,7 +8,6 @@ import { PartidoEquipos } from '../../admin-equipos/interfacesEquipos/PartidoEqu
 import { NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
-
 @Component({
   selector: 'app-busqueda-equipo',
   templateUrl: './busqueda-equipo.component.html',
@@ -17,9 +16,8 @@ import { filter } from 'rxjs/operators';
 export class BusquedaEquipoComponent implements OnInit {
   constructor(private vistasService: VistasGralService, private router: Router, private route: ActivatedRoute) { }
 
-
   texto: any = '';
-  partidos:PartidoEquipos[] = [];
+  partidos: PartidoEquipos[] = [];
   estatusPartidos: EstatusPartido = EstatusPartido.TODOS;
   ExisteEquipo: boolean = false;
 
@@ -31,7 +29,6 @@ export class BusquedaEquipoComponent implements OnInit {
 
     });
       this.obtenerPartidosEquipo();
-
 
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
@@ -47,12 +44,6 @@ export class BusquedaEquipoComponent implements OnInit {
     });
   }
 
-
-
-
-
-
-
   obtenerPartidosEquipo() {
     this.vistasService.obtenerPartidosDeEquipo(this.texto, this.estatusPartidos).subscribe({
       next: (data: any) => {
@@ -67,7 +58,7 @@ export class BusquedaEquipoComponent implements OnInit {
     });
   }
   
-  verPartido(idPartido:string){
+  verPartido(idPartido: string){
     this.router.navigate(['/ver-estadisticas-de-jugador-por-partido',idPartido]);
   }
 

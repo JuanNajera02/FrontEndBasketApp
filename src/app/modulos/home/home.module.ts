@@ -9,8 +9,6 @@ import { AnonimoModule } from '../anonimo/anonimo.module';
 import { NavBarModule } from '../nav-bar/nav-bar.module';
 import { FooterModule } from '../footer/footer.module';
 
-
-
 @NgModule({
   declarations: [
     HomeComponent

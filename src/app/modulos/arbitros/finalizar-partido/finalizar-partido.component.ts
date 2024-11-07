@@ -7,10 +7,9 @@ import { PartidosService } from 'src/app/services/partidosService/partidos.servi
   styleUrls: ['./finalizar-partido.component.css']
 })
 export class FinalizarPartidoComponent  {
-  @Input() clavePartido:number | undefined;
-  mensaje:String = ""
-  constructor(private partidoServ:PartidosService) { }
-
+  @Input() clavePartido: number | undefined;
+  mensaje: string = ""
+  constructor(private partidoServ: PartidosService) { }
 
   finalizarPartido(){
     this.partidoServ.finalizarPartido(this.clavePartido).subscribe({
@@ -32,8 +31,6 @@ export class FinalizarPartidoComponent  {
       },
     });
 
-
   }
-
 
 }

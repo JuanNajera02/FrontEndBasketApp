@@ -8,9 +8,6 @@ import { JugadoresPartidoComponent } from './jugadores-partido/jugadores-partido
 import { NavBarModule } from '../nav-bar/nav-bar.module';
 import { FooterModule } from '../footer/footer.module';
 
-
-
-
 @NgModule({
   declarations: [
     HomeAdminEquipoComponent,

@@ -8,8 +8,6 @@ import { url } from '../../../url-config';
 import { TokenService } from '../../../services/tokenService/token.service';
 import { Subject } from 'rxjs';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -18,7 +16,6 @@ export class LigasServiceService {
   private nuevoAdminSubject = new Subject<void>();
 
   constructor(private http: HttpClient, private tokenService: TokenService) {}
-
 
   createLiga(liga: Liga): Observable<{ message: string, responseData: any }> {
     const headers = this.tokenService.createHeaders();
@@ -59,9 +56,6 @@ export class LigasServiceService {
     this.nuevoAdminSubject.next();
   }
 
-
-
-
   getLigas(usuario: string): Observable<any> {
     const headers = this.tokenService.createHeaders();
 
@@ -97,7 +91,6 @@ export class LigasServiceService {
     });
   }
 
-
   modificarLiga(idLiga: number, nombreLiga: string): Observable<any> {
     const headers = this.tokenService.createHeaders();
 
@@ -122,7 +115,6 @@ export class LigasServiceService {
     });
   }
 
-
   obtenerAdminsDeLiga(idLiga: number): Observable<any> {
     const headers = this.tokenService.createHeaders();
 
@@ -133,6 +125,5 @@ export class LigasServiceService {
       }
     });
   }
-
 
 }

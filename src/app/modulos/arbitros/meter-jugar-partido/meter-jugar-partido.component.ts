@@ -12,11 +12,11 @@ import { RxStompService } from '../config-rx-stomp/rx-stomp.service';
 export class MeterJugarPartidoComponent {
   clavePartido: string = "";
   nombreEquipo: string  = "";
-  jugadoresEnBanca:EstadisticasJugador[] = [];
-  selectedJugador:EstadisticasJugador | undefined;
-  mensajeError:string = "";
+  jugadoresEnBanca: EstadisticasJugador[] = [];
+  selectedJugador: EstadisticasJugador | undefined;
+  mensajeError: string = "";
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private equipoServ:EquiposService,private RxStompService: RxStompService,
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private equipoServ: EquiposService,private RxStompService: RxStompService,
   public dialogRef: MatDialogRef<MeterJugarPartidoComponent>
 
   ){}
@@ -28,7 +28,7 @@ export class MeterJugarPartidoComponent {
 
   }
   obtenerJugadores(){
-    this.equipoServ.obtenerJugadoresDePartidoEnBanca(this.nombreEquipo,this.clavePartido,true).subscribe((data:any)=>{
+    this.equipoServ.obtenerJugadoresDePartidoEnBanca(this.nombreEquipo,this.clavePartido,true).subscribe((data: any)=>{
       this.jugadoresEnBanca = data;
     });
   }

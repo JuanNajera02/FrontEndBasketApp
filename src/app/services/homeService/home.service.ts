@@ -6,19 +6,11 @@ import { map } from 'rxjs/operators';
 import { TokenService } from '../tokenService/token.service';
 import { url } from '../../url-config';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService {
 
   constructor(private http: HttpClient, private tokenService: TokenService) {}
-
-
-
-
-
-
 
 }

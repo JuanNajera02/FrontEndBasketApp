@@ -8,11 +8,8 @@ export interface JugadoresParaPartido {
     };
 }
 
-
 export interface JugadoresPart {
   jugador: string;
   enBanca: boolean;
 }
-
-
 

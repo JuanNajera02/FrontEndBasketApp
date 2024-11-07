@@ -30,7 +30,6 @@ export class TemporadasService {
     this.caracteristicasTemporadaSubject.next();
   }
 
-
   onNuevaTemporadaCreada() {
     return this.nuevaTemporadaSubject.asObservable();
   }
@@ -87,7 +86,6 @@ export class TemporadasService {
     this.nuevosPartidosSubject.next();
   }
 
-
   obtenerArbitros(idTemporada: number): Observable<any> {
     const headers = this.tokenService.createHeaders();
 
@@ -98,7 +96,6 @@ export class TemporadasService {
       }
     });
   }
-
 
   obtenerArbitrosSinTemporada(idTemporada: number): Observable<any> {
     const headers = this.tokenService.createHeaders();
@@ -111,9 +108,6 @@ export class TemporadasService {
     });
 
   }
-
-
-
 
   asignarArbitro(idTemporada: number, usuario: string): Observable<any> {
     const headers = this.tokenService.createHeaders();
@@ -128,8 +122,6 @@ export class TemporadasService {
     });
   }
 
-
-
   crearTemporada(temporada: Temporadas): Observable<any> {
     const headers = this.tokenService.createHeaders();
 
@@ -137,7 +129,6 @@ export class TemporadasService {
       headers: headers
     });
   }
-
 
   asignarTemporada(idTemporada: number, idLiga: number): Observable<any> {
     const headers = this.tokenService.createHeaders();
@@ -152,7 +143,6 @@ export class TemporadasService {
     });
   }
 
-
   obtenerEquiposTemporada(idTemporada: number): Observable<any> {
     const headers = this.tokenService.createHeaders();
 
@@ -163,7 +153,6 @@ export class TemporadasService {
       }
     });
   }
-
 
   asignarEquipoATemporada(temporadaId: number, nombreEquipo: string) {
     const headers = this.tokenService.createHeaders();
@@ -188,11 +177,8 @@ export class TemporadasService {
     });
   }
 
-
-
   eliminarEquipoDeTemporada(temporadaId: number, nombreEquipo: string) {
     const headers = this.tokenService.createHeaders();
-
 
     const httpOptions = {
       headers: headers,
@@ -215,7 +201,6 @@ export class TemporadasService {
     return this.http.delete(url + `/Temporadas/eliminarArbitro?temporadaId=${temporadaId}&arbitroId=${usuario}`, httpOptions);
 }
 
-
   obtenerEstadoTemporada(idTemporada: number): Observable<any> {
     const headers = this.tokenService.createHeaders();
 
@@ -236,9 +221,6 @@ export class TemporadasService {
     return this.http.post(url + '/Partido/generarPartidosTemporada', body, { headers: headers });
   }
 
-
-
-
   crearPartidosTemporadaRegular(idTemporada: number, cantidadEnfrentamientosRegular: number): Observable<any> {
     const headers = this.tokenService.createHeaders();
 
@@ -249,7 +231,6 @@ export class TemporadasService {
 
     return this.http.post(url + '/Partido/crearPartidosTemporadaRegular', body, { headers: headers });
   }
-
 
   //http://localhost:8080/Partido/crearPartidosEliminatorias
 //   {
@@ -266,17 +247,6 @@ export class TemporadasService {
     return this.http.post(url + '/Partido/crearPartidosEliminatorias', body, { headers: headers });
   }
 
-
-
-
-
-
-
-
-
-
-
-
   obtenerPartidosTemporada(idTemporada: number): Observable<any> {
     const headers = this.tokenService.createHeaders();
 
@@ -287,7 +257,6 @@ export class TemporadasService {
       }
     });
   }
-
 
   asignarArbitroPartido(clavePartido: number, arbitro: string): Observable<any> {
     const headers = this.tokenService.createHeaders();
@@ -317,8 +286,6 @@ export class TemporadasService {
     });
   }
 
-
-
   modificarCaracteristicasTemp(partidosCaracteristicas: PartidosCaracteristicas, idTemporada: number ){
     const headers = this.tokenService.createHeaders();
     const body = {
@@ -333,7 +300,6 @@ export class TemporadasService {
     });
   }
 
-
   obtenerCaracteristicasTemporada(idTemporada: number): Observable<any> {
     const headers = this.tokenService.createHeaders();
 
@@ -345,18 +311,5 @@ export class TemporadasService {
     });
   }
 
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
 

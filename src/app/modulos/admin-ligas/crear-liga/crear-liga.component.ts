@@ -43,7 +43,5 @@ export class CrearLigaComponent implements OnInit{
     this.usuario = localStorage.getItem('usuario');
   }
 
-
-
 }
 

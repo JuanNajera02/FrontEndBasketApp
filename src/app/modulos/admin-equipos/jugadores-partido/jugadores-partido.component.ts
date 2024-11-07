@@ -29,7 +29,7 @@ export class JugadoresPartidoComponent implements OnInit{
   clavePartido: any = '';
   equipo1: string = '';
   equipo2: string = '';
-  jugadorParaPartido : JugadoresParaPartido = {
+  jugadorParaPartido: JugadoresParaPartido = {
     equipo: '',
     jugador: {
       usuario: ''
@@ -38,7 +38,6 @@ export class JugadoresPartidoComponent implements OnInit{
       clavePartido: 0
     }
   };
-
 
   ngOnInit(): void {
     this.nombreEquipo = localStorage.getItem('nombreEquipo');
@@ -68,7 +67,6 @@ export class JugadoresPartidoComponent implements OnInit{
     });
 
   }
-
 
   obtenerJugadoresdeEquipo() {
     console.log(this.equipo2);
@@ -111,7 +109,6 @@ export class JugadoresPartidoComponent implements OnInit{
       }
     });
   }
-
 
   obtenerJugadoresDelPartido() {
     this.equipoServ.obtenerJugadoresDePartidoyEquipo(this.nombreEquipo, this.clavePartido).subscribe({
@@ -169,7 +166,5 @@ export class JugadoresPartidoComponent implements OnInit{
       }
     });
   }
-
-
 
 }

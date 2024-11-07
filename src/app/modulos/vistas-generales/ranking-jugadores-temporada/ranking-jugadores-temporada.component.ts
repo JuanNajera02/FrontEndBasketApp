@@ -21,10 +21,7 @@ export class RankingJugadoresTemporadaComponent implements OnInit{
   tiros3Puntos: JugadorTiros3Puntos[] = [];
   asistencias: JugadorAsistencias[] = [];
 
-
   constructor(private vistasService: VistasGralService, private router: Router, private route: ActivatedRoute) { }
-
-
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -35,8 +32,6 @@ export class RankingJugadoresTemporadaComponent implements OnInit{
       this.obtenerRankingJugadoresAsistencias();
     });
   }
-
-
 
   obtenerRankingJugadoresTirosLibres() {
     this.vistasService.obtenerTopJugadoresTirosLibres(this.temporadaId).subscribe({
@@ -98,7 +93,6 @@ export class RankingJugadoresTemporadaComponent implements OnInit{
     });
   }
 
-
   obtenerRankingJugadoresAsistencias() {
     this.vistasService.obtenerTopJugadoresAsistencias(this.temporadaId).subscribe({
       next: (data: any) => {
@@ -118,13 +112,5 @@ export class RankingJugadoresTemporadaComponent implements OnInit{
       }
     });
   }
-
-
-
-
-
-
-
-
 
 }

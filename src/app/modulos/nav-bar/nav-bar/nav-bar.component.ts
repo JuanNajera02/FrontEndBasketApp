@@ -41,15 +41,12 @@ export class NavBarComponent implements OnInit {
 
   }
 
-
-
   startSearch() {
     this.searching = true;
   }
 
   performSearch() {
     console.log(this.searchQuery + ' ' +  this.selectedCategory);
-
 
     if (this.selectedCategory === 'usuarios') {
       this.router.navigate(['/buscar-usuario', this.searchQuery]);
@@ -79,9 +76,7 @@ export class NavBarComponent implements OnInit {
       this.router.navigate(['/buscar-equipo', this.searchQuery]);
     }
 
-
   }
-
 
   obtenerTemporadaId(nombreTemp: string): Observable<any> {
     return this.searchService.searchTemporadas(this.searchQuery);
@@ -90,8 +85,6 @@ export class NavBarComponent implements OnInit {
   obtenerLigaId(nombreLiga: string): Observable<any> {
     return this.searchService.searchLigas(this.searchQuery);
   }
-
-
 
   @HostListener('document:click', ['$event'])
   clickout(event: { target: any }) {
@@ -116,7 +109,6 @@ export class NavBarComponent implements OnInit {
       this.searching = false;
     }
   }
-
 
   onTyping(): void {
     this.searching = true;
@@ -215,8 +207,6 @@ export class NavBarComponent implements OnInit {
         return '';
     }
   }
-
-
 
   logout() {
     this.app.logout();

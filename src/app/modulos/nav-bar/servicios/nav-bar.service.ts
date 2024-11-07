@@ -35,9 +35,6 @@ export class NavBarService {
     this.searchLigasSubject.next(query);
   }
 
-  
-
-
   // Método para obtener resultados mientras escribes para usuarios
   getSearchResultsUsers(): Observable<any> {
     return this.searchUsersSubject.pipe(
@@ -112,11 +109,5 @@ export class NavBarService {
 
     return this.http.get(urlFinal, { params, headers });
   }
-
-
-
-
-
-
 
 }

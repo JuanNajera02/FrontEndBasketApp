@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { TemporadasService } from '../adminLigasService/temporadas.service';
 
-
 @Component({
   selector: 'app-agregar-equipo',
   templateUrl: './agregar-equipo.component.html',
@@ -31,8 +30,6 @@ export class AgregarEquipoComponent implements OnInit{
 
   }
 
-
-
   agregarEquipoTemp(tempId: number, nombreEquipo: string) {
 
     this.tempService.asignarEquipoATemporada(tempId, nombreEquipo).subscribe({
@@ -58,11 +55,5 @@ export class AgregarEquipoComponent implements OnInit{
     });
   }
 
-
-
-
 }
-
-
-
 

@@ -15,7 +15,7 @@ export class MarcadorPartidoComponent implements OnInit {
   
   @Input() claveDelPartido: number | undefined;
   
-  constructor(private jugPartido:JugadoresDePartidoEquipoService, private marcadorServ :MarcadorService) { }
+  constructor(private jugPartido: JugadoresDePartidoEquipoService, private marcadorServ: MarcadorService) { }
   ngOnInit(): void {
     this.jugPartido.obtenerPuntosEquipo(this.nombreEquipo1,this.claveDelPartido).subscribe((req)=>{
       this.puntosEquipo1=req.puntos;
@@ -32,14 +32,9 @@ export class MarcadorPartidoComponent implements OnInit {
         this.puntosEquipo2=puntos;
         console.log("puntos equipo 2: "+this.puntosEquipo2);
       });
-   
 
     });
-    
-    
    
   }
-  
-
 
 }

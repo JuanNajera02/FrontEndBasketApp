@@ -42,7 +42,7 @@
         <div *ngFor="let equipo of equiposTempList" class="contenedorlistaEquipos">
           <div class="contenedorEquipes">
             <p class="equipoNombre">{{ equipo.nombreEquipo }}</p>
-            <div *ngIf="estadoTemporada == 'INACTIVA'" class="botonEliminar">
+            <div *ngIf="estadoTemporada === 'INACTIVA'" class="botonEliminar">
               <button mat-button (click)="eliminarEquipoTemp(idTemporada, equipo.nombreEquipo)">
                 <mat-icon aria-label="Remove">remove</mat-icon>
               </button>
@@ -73,7 +73,7 @@
         <div *ngFor="let arbitro of arbitrosTemp" class="contenedorListaArbitros">
           <div class="contenedorArbi">
             <p class="arbitroNombre">{{ arbitro.usuario }}</p>
-            <div *ngIf="estadoTemporada == 'INACTIVA'" class="botonEliminar">
+            <div *ngIf="estadoTemporada === 'INACTIVA'" class="botonEliminar">
               <button mat-button (click)="eliminarArbitroTemp(idTemporada, arbitro.usuario)">
                 <mat-icon aria-label="Remove">remove</mat-icon>
               </button>

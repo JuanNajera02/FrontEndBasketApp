@@ -3,9 +3,6 @@ import { authService } from '../../../services/authenticateService/auth.service'
 import { Router } from '@angular/router';
 import { Credential } from '../../../models/Login/Credential';
 
-
-
-
 @Component({
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
@@ -17,7 +14,6 @@ export class LoginComponent {
     password: ''
   };
   error: any;
-
 
   constructor(
     private auth: authService,

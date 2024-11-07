@@ -20,17 +20,12 @@ export class CaracteristicasPartidosComponent implements OnInit{
 
   cantidadEquiposPlayOff = [2, 4, 8, 16, 32];
 
-
   constructor(private tempService: TemporadasService) {}
-
 
   ngOnInit(): void {
     this.claveTemporada = localStorage.getItem('idTemporada');
 
-
   }
-
-
 
   guardarDatos(partidosCaracteristicas: PartidosCaracteristicas){
     console.log(partidosCaracteristicas);
@@ -65,7 +60,5 @@ export class CaracteristicasPartidosComponent implements OnInit{
       }
     });
   }
-
-
 
 }

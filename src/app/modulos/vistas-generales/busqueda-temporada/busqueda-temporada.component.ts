@@ -7,8 +7,6 @@ import { NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { equiposRanking } from '../interfaces/equiposRanking';
 
-
-
 @Component({
   selector: 'app-busqueda-temporada',
   templateUrl: './busqueda-temporada.component.html',
@@ -22,7 +20,6 @@ export class BusquedaTemporadaComponent implements OnInit {
     temporadaId: any = '';
     equiposRanking: equiposRanking[] = [];
 
-
     ngOnInit(): void {
       // Obtén los parámetros de la ruta
       this.route.params.subscribe(params => {
@@ -33,7 +30,6 @@ export class BusquedaTemporadaComponent implements OnInit {
 
       });
         this.obtenerRankingEquipos();
-
 
       this.router.events.pipe(
         filter(event => event instanceof NavigationEnd)
@@ -49,7 +45,6 @@ export class BusquedaTemporadaComponent implements OnInit {
         });
       });
     }
-
 
     obtenerRankingEquipos() {
       this.vistasService.obtenerPartidosTemporadaRegular(this.temporadaId).subscribe({
@@ -103,7 +98,6 @@ export class BusquedaTemporadaComponent implements OnInit {
       });
     }
 
-
     verEstadisticas(temporadaId: string, nombreEquipo: string) {
       this.router.navigate(['/estadisticas-temporada', temporadaId, nombreEquipo]);
     }
@@ -112,7 +106,6 @@ export class BusquedaTemporadaComponent implements OnInit {
       this.router.navigate(['/ranking-jugadores-temporada', temporadaId]);
 
     }
-
 
   }
 

@@ -11,36 +11,36 @@ export class PartidosService {
 
   constructor(private http: HttpClient) {}
 
-  obtenerPartido(clavePartido:number |undefined ):Observable<Partido> {
+  obtenerPartido(clavePartido: number |undefined ): Observable<Partido> {
    return this.http.get<Partido>(`${url}/Partido/obtenerPartido?clavePartido=${clavePartido}`);
   }
 
-  obtenerFechaInicio(clavePartido:number |undefined ):Observable<String> {
-    return this.http.get<String>(`${url}/Partido/obtenerFechaInicio?clavePartido=${clavePartido}`);
+  obtenerFechaInicio(clavePartido: number |undefined ): Observable<string> {
+    return this.http.get<string>(`${url}/Partido/obtenerFechaInicio?clavePartido=${clavePartido}`);
    }
 
-   obtenerGanador(clavePartido:number | undefined):Observable<String>{
-    return this.http.get<String>(`${url}/Partido/obtenerGanador?clavePartido=${clavePartido}`);
+   obtenerGanador(clavePartido: number | undefined): Observable<string>{
+    return this.http.get<string>(`${url}/Partido/obtenerGanador?clavePartido=${clavePartido}`);
    }
 
-   finalizarPartido(claveDelPartido:number | undefined):Observable<String>{
-    // return this.http.get<String>(`${url}/Partido/finalizarPartido?clavePartido=${claveDelPartido}`);
+   finalizarPartido(claveDelPartido: number | undefined): Observable<string>{
+    // return this.http.get<string>(`${url}/Partido/finalizarPartido?clavePartido=${claveDelPartido}`);
     // put
     console.log("partiodo " , claveDelPartido)
-    return this.http.put<String>(`${url}/Partido/finalizarPartido`,{clavePartido:claveDelPartido});
+    return this.http.put<string>(`${url}/Partido/finalizarPartido`,{clavePartido:claveDelPartido});
    }
-   obtenerUsuarioArbitroAsignado(clavePartido:number | undefined):Observable<String>{
-    return this.http.get<String>(`${url}/Partido/obtenerUsuarioArbitroAsignado?clavePartido=${clavePartido}`);
+   obtenerUsuarioArbitroAsignado(clavePartido: number | undefined): Observable<string>{
+    return this.http.get<string>(`${url}/Partido/obtenerUsuarioArbitroAsignado?clavePartido=${clavePartido}`);
    }
 
-   arbitroIniciaPartidoFecha(clavePartido:number | undefined):Observable<String>{
+   arbitroIniciaPartidoFecha(clavePartido: number | undefined): Observable<string>{
     
-    return this.http.put<String>(`${url}/Partido/arbitroIniciaPartidoFecha`,{
+    return this.http.put<string>(`${url}/Partido/arbitroIniciaPartidoFecha`,{
       clavePartido:clavePartido,
       fechaInicio: format(new Date(), 'yyyy-MM-dd HH:mm:ss')
     });
   }
-  obtenerFecharArbitroIniciaPartido(clavePartido:number | undefined):Observable<String>{
-    return this.http.get<String>(`${url}/Partido/obtenerArbitroIniciaPartidoFecha?clavePartido=${clavePartido}`);
+  obtenerFecharArbitroIniciaPartido(clavePartido: number | undefined): Observable<string>{
+    return this.http.get<string>(`${url}/Partido/obtenerArbitroIniciaPartidoFecha?clavePartido=${clavePartido}`);
   }
 }

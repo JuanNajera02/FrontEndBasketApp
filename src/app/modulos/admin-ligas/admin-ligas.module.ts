@@ -15,8 +15,6 @@ import { AgregarFechaPartidoComponent } from './agregar-fecha-partido/agregar-fe
 import { FooterModule } from '../footer/footer.module';
 import { CaracteristicasPartidosComponent } from './caracteristicas-partidos/caracteristicas-partidos.component';
 
-
-
 @NgModule({
   declarations: [
     HomeAdminLigasComponent,

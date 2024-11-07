@@ -5,7 +5,6 @@ import { url } from '../../../url-config';
 import { TokenService } from '../../../services/tokenService/token.service';
 import { Subject } from 'rxjs';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -40,11 +39,6 @@ export class EquiposService {
     this.modificacionJugadoresPartido.next();
   }
 
-
-
-
-
-
   obtenerEquipo(usuario: string){
     const headers = this.tokenService.createHeaders();
 
@@ -55,7 +49,6 @@ export class EquiposService {
       }
     });
   }
-
 
   crearEquipo(equipo: any): Observable<any> {
     const headers = this.tokenService.createHeaders();
@@ -71,7 +64,6 @@ export class EquiposService {
     return this.http.post(url + '/Equipo/crearEquipo', equipoAjustado, { headers: headers });
   }
 
-
   obtenerJugadoresParaEquipo(equipo: string){
     const headers = this.tokenService.createHeaders();
 
@@ -82,7 +74,6 @@ export class EquiposService {
       }
     });
   }
-
 
   agregarJugadorAEquipo(jugador: any): Observable<any> {
     const headers = this.tokenService.createHeaders();
@@ -96,8 +87,6 @@ export class EquiposService {
     return this.http.post(url + '/Equipo/agregarJugador', jugadorAjustado, { headers });
   }
 
-
-
   //este
 
   obtenerJugadoresdeEquipo(equipo: string) {
@@ -107,7 +96,6 @@ export class EquiposService {
     return this.http.get(urlWithEquipo, { headers: headers });
   }
 
-
   eliminarJugadorDeEquipo(jugador: string, equipo: string) {
     const headers = this.tokenService.createHeaders();
 
@@ -115,7 +103,6 @@ export class EquiposService {
       headers: headers
     });
   }
-
 
   obtenerPartidosDeEquipo(equipo: string, estatus: string) {
     const headers = this.tokenService.createHeaders();
@@ -141,7 +128,6 @@ export class EquiposService {
     });
   }
 
-
   //http://localhost:8080/JugadorPartido/agregarJugadorPartido
   agregarJugadorPartido(jugadorPartido: any): Observable<any> {
     const headers = this.tokenService.createHeaders();
@@ -164,7 +150,6 @@ export class EquiposService {
     });
   }
 
-
     //http://localhost:8080/JugadorPartido/obtenerJugadoresDePartidoyEquipo?clavePartido=75&nombreEquipo=prueba pls funciona
 
     obtenerJugadoresDePartidoyEquipo(equipo: string, clavePartido: string) {
@@ -179,7 +164,6 @@ export class EquiposService {
       });
     }
 
-
     obtenerJugadoresDePartidoEnBanca(equipo: string, clavePartido: string, enBanca: boolean) {
       const headers = this.tokenService.createHeaders();
 
@@ -192,7 +176,6 @@ export class EquiposService {
         }
       });
     }
-
 
     obtenerJugadoresDePartidoEnCancha(equipo: string, clavePartido: string, enBanca: boolean) {
       const headers = this.tokenService.createHeaders();
@@ -207,9 +190,7 @@ export class EquiposService {
       });
     }
 
-
     //http://localhost:8080/JugadorPartido/PosicionarJugador?clavePartido=75&usuario=elpepe&enBanca=false
-
 
     posicionarJugador(clavePartido: string, usuario: string, enBanca: boolean) {
       const headers = this.tokenService.createHeaders();
@@ -218,8 +199,5 @@ export class EquiposService {
 
       return this.http.put(urlWithParams, null, { headers });
     }
-
-
-
 
 }

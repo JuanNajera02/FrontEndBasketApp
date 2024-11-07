@@ -5,8 +5,6 @@ import { Temporadas } from '../interfaces/Temporadas';
 import { Categoria } from '../interfaces/Temporadas';
 import { Rama } from '../interfaces/Temporadas';
 
-
-
 @Component({
   selector: 'app-crear-temporada',
   templateUrl: './crear-temporada.component.html',
@@ -35,9 +33,6 @@ export class CrearTemporadaComponent implements OnInit{
 
   constructor(private tempService: TemporadasService) {}
 
-
-
-
   ngOnInit(): void {
     this.idLiga = Number(localStorage.getItem('idLiga'));
   }
@@ -62,7 +57,5 @@ export class CrearTemporadaComponent implements OnInit{
       }
     });
   }
-
-
 
 }

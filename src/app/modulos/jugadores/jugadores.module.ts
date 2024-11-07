@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { HomeJugadorComponent } from 'src/app/modulos/jugadores/home-jugador/home-jugador.component';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 
-
-
 @NgModule({
   declarations: [
     HomeJugadorComponent

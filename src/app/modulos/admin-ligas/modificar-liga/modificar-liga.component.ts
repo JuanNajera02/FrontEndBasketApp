@@ -27,7 +27,6 @@ export class ModificarLigaComponent implements OnInit{
     this.obtenerAdminsNoEnLigas(this.idLiga);
     this.obtenerAdminsLiga(this.idLiga);
 
-
     this.ligaService.onNuevoAdminAsignado().subscribe(() => {
       this.adminsLigas = [];
       this.adminsEnLiga = [];
@@ -36,10 +35,6 @@ export class ModificarLigaComponent implements OnInit{
       });
 
   }
-
-
-
-
 
   modificarNombreLiga() {
     this.ligaService.modificarLiga(this.idLiga, this.nombreLiga).subscribe({
@@ -68,7 +63,7 @@ export class ModificarLigaComponent implements OnInit{
     });
   }
 
-  obtenerAdminsNoEnLigas(idLiga : number) {
+  obtenerAdminsNoEnLigas(idLiga: number) {
     this.ligaService.obtenerAdminsNoEnLiga(idLiga).subscribe({
       next: (result) => {
         result.forEach((element: any) => {
@@ -79,8 +74,7 @@ export class ModificarLigaComponent implements OnInit{
     });
   }
 
-
-  obtenerAdminsLiga(idLiga : number) {
+  obtenerAdminsLiga(idLiga: number) {
     this.ligaService.obtenerAdminsDeLiga(idLiga).subscribe({
       next: (result) => {
         result.forEach((element: any) => {
@@ -89,7 +83,5 @@ export class ModificarLigaComponent implements OnInit{
       }
     });
   }
-
-
 
 }

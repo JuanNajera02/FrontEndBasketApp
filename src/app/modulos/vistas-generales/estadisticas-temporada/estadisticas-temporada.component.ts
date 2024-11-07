@@ -7,8 +7,6 @@ import { NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { EstadisticasPorJugador } from '../interfaces/EstadisticasPorJugador';
 
-
-
 @Component({
   selector: 'app-estadisticas-temporada',
   templateUrl: './estadisticas-temporada.component.html',
@@ -22,7 +20,6 @@ export class EstadisticasTemporadaComponent implements OnInit {
   temporadaId: any = '';
 
   estadisticasArray: { key: string; value: EstadisticasPorJugador }[] = [];
-
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {

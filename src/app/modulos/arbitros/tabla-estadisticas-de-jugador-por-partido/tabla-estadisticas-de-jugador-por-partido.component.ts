@@ -22,17 +22,17 @@ export class TablaEstadisticasDeJugadorPorPartidoComponent implements OnInit {
     @Input() claveDelPartido: number | undefined;
     @Input() enBanca: number | null;
     @Input() partidoFinalizado: boolean = false;
-    @Input() usuarioArbitroAsignado:String = "";
+    @Input() usuarioArbitroAsignado: string = "";
     private puntosEquipo: number | undefined;
 
-    statDescriptionHandlersPositivos: { [key: string]: (fila: EstadisticasJugador) => void } = {
+    statDescriptionHandlersPositivos: { [key: string]: (fila: EstadisticasJugador)=> void } = {
       tirosDe2Puntos: (fila: EstadisticasJugador) => fila.tirosDe2Puntos++,
       tirosLibres: (fila: EstadisticasJugador) => fila.tirosLibres++,
       tirosDe3Puntos: (fila: EstadisticasJugador) => fila.tirosDe3Puntos++,
       asistencias: (fila: EstadisticasJugador) => fila.asistencias++,
       faltas: (fila: EstadisticasJugador) => fila.faltas++,
     };
-    statDescriptionHandlersNegativos: { [key: string]: (fila: EstadisticasJugador) => void } = {
+    statDescriptionHandlersNegativos: { [key: string]: (fila: EstadisticasJugador)=> void } = {
       tirosDe2Puntos: (fila: EstadisticasJugador) => fila.tirosDe2Puntos--,
       tirosLibres: (fila: EstadisticasJugador) => fila.tirosLibres--,
       tirosDe3Puntos: (fila: EstadisticasJugador) => fila.tirosDe3Puntos--,
@@ -48,10 +48,9 @@ export class TablaEstadisticasDeJugadorPorPartidoComponent implements OnInit {
       tirosLibres: 0,
       asistencias: 0,
     };
-    datosTemporales : EstadisticasJugador[] = []
+    datosTemporales: EstadisticasJugador[] = []
     usuario: any = '';
     rol: any = '';
-
 
     data: EstadisticasJugador[] = [];
 
@@ -67,7 +66,7 @@ export class TablaEstadisticasDeJugadorPorPartidoComponent implements OnInit {
     ngOnDestroy() {
       this.RxStompService.deactivate();
     }
-
+    
     agregarPuntoDeJugador(jugador: string, columna: string) {
 
       const message = {
@@ -80,7 +79,6 @@ export class TablaEstadisticasDeJugadorPorPartidoComponent implements OnInit {
         destination: `/app/actualizarPunto/${this.claveDelPartido}`,
         body: JSON.stringify(message)
       });
-
 
     }
     quitarPuntoDeJugador(jugador: string, columna: string) {
@@ -97,7 +95,6 @@ export class TablaEstadisticasDeJugadorPorPartidoComponent implements OnInit {
         });
     }
 
-
     ngOnInit() {
       this.JugadoresDePartidoEquipoService.obtenerJugadoresDePartidoYEquipo(this.claveDelPartido, this.nombreEquipo).subscribe((data) => {
 
@@ -110,7 +107,7 @@ export class TablaEstadisticasDeJugadorPorPartidoComponent implements OnInit {
         this.datosTemporales = data.filter((fila) => fila.jugador === '');
 
         // Quitar jugadores duplicados
-        let jugadores: string[] = [];
+        const jugadores: string[] = [];
         data = data.filter((fila) => {
           if (!jugadores.includes(fila.jugador)) {
             jugadores.push(fila.jugador);
@@ -133,7 +130,6 @@ export class TablaEstadisticasDeJugadorPorPartidoComponent implements OnInit {
       this.JugadoresDePartidoEquipoService.obtenerTipoUsuario(this.usuario).subscribe((data: any) => {
         this.rol = data.Rol;
       });
-
 
   }
   onActualizacionesDePuntos(){
@@ -176,7 +172,7 @@ export class TablaEstadisticasDeJugadorPorPartidoComponent implements OnInit {
   }
   onSacarJugador(){
     this.RxStompService.watch(`/topic/sacarJugador/${this.claveDelPartido}`).subscribe((message: Message) => {
-      const sacarJugadorResponse : SacarJugador | undefined = JSON.parse(message.body);
+      const sacarJugadorResponse: SacarJugador | undefined = JSON.parse(message.body);
       const newData = [...this.tableDataSource.data];
       let jugadorEncontrado = false;
 
@@ -206,7 +202,7 @@ export class TablaEstadisticasDeJugadorPorPartidoComponent implements OnInit {
       const nombreEquipo = JSON.parse(message.body).nombreEquipo;
 
       if(nombreEquipo !== this.nombreEquipo) return;
-      let newJugador:EstadisticasJugador ={
+      const newJugador: EstadisticasJugador ={
         jugador: JSON.parse(message.body).jugador,
         faltas: JSON.parse(message.body).faltas,
         tirosDe2Puntos: JSON.parse(message.body).tirosDe2Puntos,
@@ -241,5 +237,4 @@ export class TablaEstadisticasDeJugadorPorPartidoComponent implements OnInit {
   }
 
 }
-
 

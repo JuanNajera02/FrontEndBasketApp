@@ -3,10 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FooterComponentComponent } from './footer-component/footer-component.component';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 
-
-
-
-
 @NgModule({
   declarations: [
     FooterComponentComponent

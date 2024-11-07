@@ -12,8 +12,6 @@ export class VerPerfilComponent implements OnInit{
 
   constructor(private tempService: VistasGralService) { }
 
-
-
   usuario: any = '';
   error: string = '';
   user: Usuario = {
@@ -25,14 +23,10 @@ export class VerPerfilComponent implements OnInit{
     fechaNacimiento: ''
   };
 
-
-
-
   ngOnInit() {
     this.usuario = localStorage.getItem('usuario');
     this.obtenerPerfilUsuario(this.usuario);
   }
-
 
   obtenerPerfilUsuario(user: any){
     this.tempService.ObtenerPerfilUsuario(user).subscribe({
@@ -61,7 +55,6 @@ export class VerPerfilComponent implements OnInit{
     });
 
   }
-
 
   guardarDatosPerfil(){
     if(this.user.nombre === ''){
@@ -92,7 +85,6 @@ export class VerPerfilComponent implements OnInit{
         console.log(error);
       }
     });
-
 
   }
 

@@ -4,14 +4,12 @@ import { Equipo } from '../interfacesEquipos/Equipos';
 import { Categoria } from '../interfacesEquipos/Equipos';
 import { Rama } from '../interfacesEquipos/Equipos';
 
-
 @Component({
   selector: 'app-crear-equipo',
   templateUrl: './crear-equipo.component.html',
   styleUrls: ['./crear-equipo.component.css']
 })
 export class CrearEquipoComponent{
-
 
   mensaje: string = '';
   equipo: Equipo = {
@@ -30,8 +28,6 @@ export class CrearEquipoComponent{
   .map(value => value as string);
 
   constructor(private equiposService: EquiposService) {}
-
-
 
   crearEquipo() {
     console.log(this.equipo);

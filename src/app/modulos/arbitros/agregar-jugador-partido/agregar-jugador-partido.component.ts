@@ -10,8 +10,7 @@ export class AgregarJugadorPartidoComponent {
   @Input() claveDelPartido: number | undefined;
   @Input() nombreEquipo: string | undefined;
 
-  constructor(private jugadorPartidoServ:JugadoresDePartidoEquipoService) { }
-
+  constructor(private jugadorPartidoServ: JugadoresDePartidoEquipoService) { }
 
   agregarJugadorAPartido(){
     console.log(this.claveDelPartido);

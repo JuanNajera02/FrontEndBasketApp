@@ -9,8 +9,8 @@
       <div class="cronometro">
 
         <p id="tiempo">
-        <app-btn-iniciar-partido *ngIf="aribitroPuedeIniciarPartido && partidoFinalizado !== true && rol =='ARBITRO' && usuario === usuarioArbitroAsignado" [clavePartido]="claveDelPartido" ></app-btn-iniciar-partido>
-        <button *ngIf="fechaIniciPartidoArbitro && partidoFinalizado !== true && rol =='ARBITRO' && usuario === usuarioArbitroAsignado" (click)="detenerTiempo()">detener tiempo</button>
+        <app-btn-iniciar-partido *ngIf="aribitroPuedeIniciarPartido && partidoFinalizado !== true && rol ==='ARBITRO' && usuario === usuarioArbitroAsignado" [clavePartido]="claveDelPartido" ></app-btn-iniciar-partido>
+        <button *ngIf="fechaIniciPartidoArbitro && partidoFinalizado !== true && rol ==='ARBITRO' && usuario === usuarioArbitroAsignado" (click)="detenerTiempo()">detener tiempo</button>
 
           {{ tiempoTranscurrido }} <mat-icon>schedule</mat-icon>
         </p>
@@ -27,7 +27,7 @@
 
 
   <div class="centrar">
-    <app-finalizar-partido *ngIf="partidoFinalizado !== true && rol =='ARBITRO' && usuario === usuarioArbitroAsignado " [clavePartido]="claveDelPartido"></app-finalizar-partido>
+    <app-finalizar-partido *ngIf="partidoFinalizado !== true && rol ==='ARBITRO' && usuario === usuarioArbitroAsignado " [clavePartido]="claveDelPartido"></app-finalizar-partido>
   </div>
 
 </div>

@@ -16,12 +16,9 @@ import { JugadoresService } from '../services/jugadores.service';
 export class HomeJugadorComponent implements OnInit{
   constructor(private router: Router, private route: ActivatedRoute, private jugadores: JugadoresService) { }
 
-  partidos:PartidoEquipos[] = [];
+  partidos: PartidoEquipos[] = [];
   estatusPartidos: EstatusPartido = EstatusPartido.TODOS;
   usuario: any = '';
-
-
-
 
   ngOnInit(): void {
 
@@ -30,7 +27,6 @@ export class HomeJugadorComponent implements OnInit{
     this.obtenerPartidosJugador();
 
   }
-
 
   obtenerPartidosJugador(){
     this.jugadores.obtenerPartidosJugador(this.usuario).subscribe({
@@ -44,7 +40,5 @@ export class HomeJugadorComponent implements OnInit{
     });
   }
 
-
 }
-
 

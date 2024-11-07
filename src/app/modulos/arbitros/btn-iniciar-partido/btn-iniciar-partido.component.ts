@@ -8,11 +8,9 @@ import { PartidosService } from 'src/app/services/partidosService/partidos.servi
 })
 export class BtnIniciarPartidoComponent {
 
-
   @Input() clavePartido: number | undefined;
 
-  constructor(private partidoServ:PartidosService) { }
-
+  constructor(private partidoServ: PartidosService) { }
 
   iniciarPartidoArbitro() {
     this.partidoServ.arbitroIniciaPartidoFecha(this.clavePartido).subscribe();

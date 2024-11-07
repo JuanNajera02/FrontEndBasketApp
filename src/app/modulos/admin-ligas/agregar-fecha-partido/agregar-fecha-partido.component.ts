@@ -16,20 +16,15 @@ export class AgregarFechaPartidoComponent implements OnInit{
 
   constructor(private tempService: TemporadasService) { }
 
-
-
   ngOnInit(): void {
     this.idPartido = +localStorage.getItem('idPartido')!;
   }
-
-
 
   agendarPartido(idPartido: number, fecha: string, hora: string) {
     console.log(" id partido: " + idPartido + " fecha: " + fecha + " hora: " + hora);
     try {
       // Formatea la fecha en el formato "YYYY-MM-DD" y la hora en "HH:mm:ss"
       const fechaHoraFormateada = format(new Date(fecha), "yyyy-MM-dd") + " " + hora;
-
 
       console.log("fecha formateada: " + fechaHoraFormateada);
 
@@ -52,10 +47,5 @@ export class AgregarFechaPartidoComponent implements OnInit{
       this.mensaje = "Error al agendar el partido";
     }
   }
-
-
-
-
-
 
 }

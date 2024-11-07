@@ -8,6 +8,3 @@ export interface equiposRanking {
   rango: number;  // Agrega la propiedad rango
 }
 
-
-
-

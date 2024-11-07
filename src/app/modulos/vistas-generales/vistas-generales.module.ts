@@ -14,9 +14,6 @@ import { PoliticiasPrivacidadComponent } from './politicias-privacidad/politicia
 import { CondicionesUsoComponent } from './condiciones-uso/condiciones-uso.component';
 import { RankingJugadoresTemporadaComponent } from './ranking-jugadores-temporada/ranking-jugadores-temporada.component';
 
-
-
-
 @NgModule({
   declarations: [
     VerPerfilComponent,

@@ -23,8 +23,6 @@ export enum Rama {
   FEMENINO
 }
 
-
-
 // "nombreTemporada": "Temporada 2023-2024",
 // "fechaInicio": "2023-09-01",
 // "fechaTermino": "2024-06-30",

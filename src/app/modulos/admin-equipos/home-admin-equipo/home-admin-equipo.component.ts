@@ -14,7 +14,7 @@ import { PartidoEquipos } from '../interfacesEquipos/PartidoEquipos';
   styleUrls: ['./home-admin-equipo.component.css']
 })
 export class HomeAdminEquipoComponent implements OnInit{
-  partidos:PartidoEquipos[] = [];
+  partidos: PartidoEquipos[] = [];
   usuario: any = localStorage.getItem('usuario');
   mensaje: string = '';
   tieneEquipo: boolean = false;
@@ -22,9 +22,6 @@ export class HomeAdminEquipoComponent implements OnInit{
   nombreEquipo: any = localStorage.getItem('nombreEquipo');
 
   constructor(public dialog: MatDialog, private equipoServ: EquiposService, private router: Router) { }
-
-
-
 
   ngOnInit(): void {
     this.usuario = localStorage.getItem('usuario');
@@ -38,14 +35,6 @@ export class HomeAdminEquipoComponent implements OnInit{
     });
 
   }
-
-
-
-
-
-
-
-
 
   obtenerEquipo() {
     this.equipoServ.obtenerEquipo(this.usuario).subscribe({
@@ -62,7 +51,6 @@ export class HomeAdminEquipoComponent implements OnInit{
       }
     });
   }
-
 
   crearEquipo(){
     this.dialog.open(CrearEquipoComponent,{
@@ -89,12 +77,10 @@ export class HomeAdminEquipoComponent implements OnInit{
     });
   }
 
-
   editarJugadoresPartido(idPartido: string) {
     console.log(idPartido);
     this.router.navigate(['/editar-jugadores-de-un-partido', idPartido]);
 
   }
-
 
 }

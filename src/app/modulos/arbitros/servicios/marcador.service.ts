@@ -12,7 +12,7 @@ export class MarcadorService {
       map(puntosEquipo => puntosEquipo[`${nombreEquipo}-${clavePartido}`] || 0)
     );
   }
-  actualizarPuntosEquipo(nombreEquipo: string | undefined,clavePartido:number | undefined, puntos: number | undefined) {
+  actualizarPuntosEquipo(nombreEquipo: string | undefined,clavePartido: number | undefined, puntos: number | undefined) {
     const puntosEquipo = { ...this.puntosEquipoSubject.value };
     puntosEquipo[`${nombreEquipo}-${clavePartido}`] = puntos;
     this.puntosEquipoSubject.next(puntosEquipo);

@@ -26,8 +26,6 @@ export class AdministrarJugadoresComponent implements OnInit{
   };
   jugadoresEnEquipo: { usuario: string, posicion: string }[] = [];
 
-
-
   ngOnInit(): void {
     this.nombreEquipo = localStorage.getItem('nombreEquipo')!;
     this.obtenerJugadoresParaEquipo(this.nombreEquipo);
@@ -43,8 +41,6 @@ export class AdministrarJugadoresComponent implements OnInit{
 
   }
 
-
-
   obtenerJugadoresParaEquipo(equipo: string) {
     this.equiposService.obtenerJugadoresParaEquipo(equipo).subscribe({
       next: (result) => { // No especifica el tipo en la función next
@@ -53,7 +49,6 @@ export class AdministrarJugadoresComponent implements OnInit{
       }
     });
   }
-
 
   agregarJugador(jugador: string, posicion: string) {
     if (posicion === '') {
