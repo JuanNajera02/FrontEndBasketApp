@@ -1,64 +1,51 @@
 <div class="contenedorPag">
 
+  <div class="contenedorPrincipal">
 
-    <div class="contenedorPrincipal">
-
-        <form>
-          <div class="contenedorImagen">
-            <img class="imagenLogo" src="../../../../assets/imgs/blanco.png" alt="logo">
-          </div>
-
-          <div class="contenedorLogin">
-
-            <input type="text" id="username" name="usuario" placeholder="Nombre de Usuario" [(ngModel)]="registro.usuario"/>
-
-            <input type="text" id="name" name="nombre" placeholder="Nombre" [(ngModel)]="registro.nombre"/>
-
-            <input type="text" id="apellido" name="apellido" placeholder="Apellidos"[(ngModel)]="registro.apellido"/>
-
-            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-            <input type="date" id="date" name="fechaNacimiento" [(ngModel)]="registro.fechaNacimiento"/>
-
-
-            <input type="email" id="email" name="email" placeholder="Email" [(ngModel)]="registro.email"/>
-
-
-            <input type="password" id="password" name="password" placeholder="Contraseña" [(ngModel)]="registro.password"/>
-
-            <input type="password" id="password2" name="password2" placeholder="Repetir Contraseña" [(ngModel)]="password2.password" />
-
-
-            <label for="genero">Genero:</label>
-            <select id="genero" name="genero" [(ngModel)]="registro.genero">
-              <option value="MASCULINO">Masculino</option>
-              <option value="FEMENINO">Femenino</option>
-            </select>
-
-            <label for="user">Tipo de Usuario:</label>
-            <select id="user" name="rol" [(ngModel)]="registro.rol">
-              <option value="ADMIN_LIGA">Administrador de Liga</option>
-              <option value="JUGADOR">Jugador</option>
-              <option value="ADMIN_EQUIPO">Administrador de Equipo</option>
-              <option value="ARBITRO">Arbitro</option>
-            </select>
-
-          <button type="submit" class="boton btn" (click)="register()">Registrarse</button>
-
-              <div class="registrarse">
-                <p>¿Ya tienes una cuenta?</p>
-                <a href="/login">Iniciar Sesion</a>
-              </div>
-              <div class="errorif" *ngIf="error">
-                <p>{{ error }}</p>
-              </div>
-
-        </div>
-        </form>
-
+    <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+      <div class="contenedorImagen">
+        <img class="imagenLogo" src="../../../../assets/imgs/blanco.png" alt="logo">
       </div>
 
+      <div class="contenedorLogin">
+
+        <input type="text" id="username" name="usuario" placeholder="Nombre de Usuario" formControlName="usuario" />
+
+        <input type="text" id="name" name="nombre" placeholder="Nombre" formControlName="nombre" />
+
+        <input type="text" id="apellido" name="apellido" placeholder="Apellidos" formControlName="apellido" />
+        <input type="email" id="email" name="email" placeholder="Email" formControlName="email" />
 
 
- </div>
+        <input type="password" id="password" name="password" placeholder="Password" formControlName="password" />
 
-    <app-footer-component></app-footer-component>
+        <input type="password" id="password2" name="password2" placeholder="Repetir Contraseña" [formControl]="repeatedPassword" />
+
+        <label for="user">Tipo de Usuario:</label>
+        <select id="user" name="rol" formControlName="rol">
+          <option value="ADMIN_LIGA">Administrador de Liga</option>
+          <option value="JUGADOR">Jugador</option>
+          <option value="ADMIN_EQUIPO">Administrador de Equipo</option>
+          <option value="ARBITRO">Arbitro</option>
+        </select>
+
+        <button type="submit" class="boton btn">Sign Up</button>
+
+        <div class="registrarse">
+          <p>¿Ya tienes una cuenta?</p>
+          <a href="/login">Iniciar Sesion</a>
+        </div>
+        <div class="errorif" *ngIf="error">
+          <p>{{ error }}</p>
+        </div>
+
+      </div>
+    </form>
+
+  </div>
+
+
+
+</div>
+
+<app-footer-component></app-footer-component>

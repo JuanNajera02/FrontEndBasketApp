@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Register } from '../../models/Login/Register';
+import { SignUp } from '../../models/Login/Register';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators';
@@ -18,7 +18,7 @@ export class authService {
   user: string = '';
   mensaje_errores: string = '';
 
-  registerUser(rgr: Register): Observable<any> {
+  registerUser(rgr: any): Observable<any> {
     return this.http.post(url + '/auth/register', rgr, {
       observe: 'response'
     }).pipe(

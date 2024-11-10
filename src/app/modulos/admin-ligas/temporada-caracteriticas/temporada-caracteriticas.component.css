@@ -279,7 +279,7 @@ html, body {
 
 
 .contenedorPag {
-  min-height: 100vh; /* Asegura que la altura sea al menos del 100% del viewport */
+  min-height: 80vh; /* Asegura que la altura sea al menos del 100% del viewport */
   background-color: #d9d9d9;
 }
 

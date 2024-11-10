@@ -17,7 +17,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatExpansionModule } from '@angular/material/expansion';
 @NgModule({
   declarations: [],
   imports: [
@@ -39,7 +40,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatTableModule,
     MatListModule,
     MatRadioModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatSidenavModule,
+    MatExpansionModule
   ],
   exports: [
     MatToolbarModule,
@@ -59,7 +62,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatTableModule,
     MatListModule,
     MatRadioModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatSidenavModule,
+    MatExpansionModule
   ]
 })
 export class AngularMaterialModule { }

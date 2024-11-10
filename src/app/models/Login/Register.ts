@@ -1,7 +1,7 @@
 import { Gender } from '../Login/Gender';
 import { Role } from '../Login/Role';
 
-export interface Register {
+export interface SignUp {
   usuario: string;
   email: string;
   password: string;

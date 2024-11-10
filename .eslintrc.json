@@ -33,7 +33,11 @@
         ],
         "@typescript-eslint/no-inferrable-types": "off",
         "@typescript-eslint/type-annotation-spacing": ["error", { "before": false, "after": true }],
-        "no-multiple-empty-lines": ["error", { "max": 1 }]
+        "no-multiple-empty-lines": ["error", { "max": 1 }],
+        // enforce double quotes
+        "quotes": ["error", "double"],
+        // Enforce semicolons at the end of statements
+        "semi": ["error", "always"]
       }
     },
     {
@@ -44,7 +48,15 @@
         "plugin:@angular-eslint/template/recommended",
         "plugin:@angular-eslint/template/accessibility"
       ],
-      "rules": {}
+     "rules": {
+        "@angular-eslint/template/no-negated-async": "error",
+        "@angular-eslint/template/banana-in-box": "warn",
+        "@angular-eslint/template/eqeqeq": "error",
+        "no-multiple-empty-lines": [
+          "error",
+          { "max": 1, "maxEOF": 1, "maxBOF": 0 }
+        ]
+      }
     }
   ]
 }

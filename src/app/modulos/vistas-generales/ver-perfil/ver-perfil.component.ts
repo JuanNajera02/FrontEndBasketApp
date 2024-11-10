@@ -1,36 +1,43 @@
-import { Component } from '@angular/core';
-import { OnInit } from '@angular/core';
-import { Usuario } from '../interfaces/perfil';
-import { VistasGralService } from '../services/vistas-gral.service';
+import { Component } from "@angular/core";
+import { OnInit } from "@angular/core";
+import { Usuario } from "../interfaces/perfil";
+import { VistasGralService } from "../services/vistas-gral.service";
 
 @Component({
-  selector: 'app-ver-perfil',
-  templateUrl: './ver-perfil.component.html',
-  styleUrls: ['./ver-perfil.component.css']
+  selector: "app-ver-perfil",
+  templateUrl: "./ver-perfil.component.html",
+  styleUrls: ["./ver-perfil.component.css"]
 })
 export class VerPerfilComponent implements OnInit{
 
   constructor(private tempService: VistasGralService) { }
 
-  usuario: any = '';
-  error: string = '';
+ 
+  
+  
+  usuario: any = ''
+  error: string = "";
   user: Usuario = {
-    usuario: '',
-    nombre: '',
-    apellido: '',
-    genero: '',
-    rol: '',
-    fechaNacimiento: ''
+    usuario: "",
+    nombre: "",
+    apellido: "",
+    genero: "",
+    rol: "",
+    fechaNacimiento: ""
   };
 
   ngOnInit() {
-    this.usuario = localStorage.getItem('usuario');
+    this.usuario = localStorage.getItem("usuario");
     this.obtenerPerfilUsuario(this.usuario);
   }
 
   obtenerPerfilUsuario(user: any){
+    console.log(user);
+    
     this.tempService.ObtenerPerfilUsuario(user).subscribe({
       next: (data: any) => {
+        console.log(data);
+        
         const usuario = data?.usuario;
         this.user.usuario = usuario;
 
@@ -50,6 +57,8 @@ export class VerPerfilComponent implements OnInit{
         this.user.fechaNacimiento = fechaNacimiento;
       },
       error: (error) => {
+        console.log(error);
+        
         this.error = error;
       }
     });
@@ -57,17 +66,17 @@ export class VerPerfilComponent implements OnInit{
   }
 
   guardarDatosPerfil(){
-    if(this.user.nombre === ''){
-      this.error = 'El nombre no puede estar vacío';
+    if(this.user.nombre === ""){
+      this.error = "El nombre no puede estar vacío";
       setTimeout(() => {
-        this.error = ''; // Limpiar el mensaje
+        this.error = ""; // Limpiar el mensaje
       }, 5000);
       return;
     }
-    if(this.user.apellido === ''){
-      this.error = 'El apellido no puede estar vacío';
+    if(this.user.apellido === ""){
+      this.error = "El apellido no puede estar vacío";
       setTimeout(() => {
-        this.error = ''; // Limpiar el mensaje
+        this.error = ""; // Limpiar el mensaje
       }, 5000);
       return;
     }
@@ -75,9 +84,9 @@ export class VerPerfilComponent implements OnInit{
     this.tempService.modificarDatosUsuario(this.user.usuario, this.user.nombre, this.user.apellido).subscribe({
       next: (data: any) => {
         console.log(data);
-        this.error = 'Datos actualizados correctamente';
+        this.error = "Datos actualizados correctamente";
         setTimeout(() => {
-          this.error = ''; // Limpiar el mensaje
+          this.error = ""; // Limpiar el mensaje
         }, 5000);
       },
       error: (error) => {

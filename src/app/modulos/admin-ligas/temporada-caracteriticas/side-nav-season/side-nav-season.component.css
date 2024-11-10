@@ -1,0 +1,59 @@
+.sidenav-container {
+    height: 100vh;
+}
+
+.sidenav {
+    width: 240px;
+    background-color: #f7f7f5;
+}
+
+.sidenav-toolbar {
+    font-size: 16px;
+}
+
+.nav-item {
+    display: flex;
+    font-size: 14px;
+    color: #424242;
+}
+
+/* this class is from angular material this override the height*/
+.mdc-list-item.mdc-list-item--with-one-line,
+.mat-expansion-panel-header {
+    height: 30px !important;
+}
+
+.mat-expansion-panel-header {
+    padding-left: 16px;
+}
+
+.nav-icon {
+    font-size: 20px;
+    margin-right: 16px;
+    width: 20px;
+    height: 20px;
+    font-size: 18px;
+    color: #616161;
+    vertical-align: middle;
+}
+
+.nested-nav-list {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* Optional hover effects */
+.nav-item:hover {
+    cursor: pointer;
+}
+
+span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #5F5E5B;
+}
+
+.mat-expansion-panel {
+    background-color: #f7f7f5;
+    box-shadow: none !important;
+}

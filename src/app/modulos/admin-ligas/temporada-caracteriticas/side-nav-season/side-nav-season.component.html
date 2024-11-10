@@ -1,0 +1,43 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="side" opened class="sidenav">
+      <mat-toolbar color="primary" class="sidenav-toolbar">Navigation</mat-toolbar>
+      <mat-nav-list>
+        <mat-list-item class="nav-item">
+          <mat-icon class="nav-icon">dashboard</mat-icon>
+          <span>Overview</span>
+        </mat-list-item>
+      <!-- Expandable Teams Section -->
+      <mat-accordion>
+        <mat-expansion-panel   [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon class="nav-icon">view_kanban</mat-icon>
+              <span>Teams</span>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <mat-nav-list class="nested-nav-list">
+            <mat-list-item *ngFor="let team of teams" class="nested-nav-item">
+              <mat-icon class="nav-icon">group</mat-icon>
+              <span>{{ team }}</span>
+            </mat-list-item>
+          </mat-nav-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+        <mat-list-item class="nav-item">
+          <mat-icon class="nav-icon">inbox</mat-icon>
+          <span>Referees</span>
+        </mat-list-item>
+        <mat-list-item class="nav-item">
+          <mat-icon class="nav-icon">people</mat-icon>
+          <span>Organizers</span>
+        </mat-list-item>
+        <mat-list-item class="nav-item">
+          <mat-icon class="nav-icon">calendar_month</mat-icon>
+          <span>Calendar</span>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+  </mat-sidenav-container>
+  
