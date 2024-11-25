@@ -73,8 +73,8 @@ export class HomeAdminLigasComponent implements OnInit{
     });
   }
 
-  verTemporada(idTemporada: number) {
-    this.router.navigate(['/temporadaCaracteristicas', idTemporada]);
+  verTemporada(idTemporada: number,idLiga:number) {
+    this.router.navigate(['/temporadaCaracteristicas', idTemporada,idLiga]);
   }
 
   openDialogModificarLiga(idLiga: number, nombreLiga: string): void {

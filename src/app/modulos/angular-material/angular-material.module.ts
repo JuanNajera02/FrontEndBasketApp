@@ -19,6 +19,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -42,7 +44,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatRadioModule,
     MatAutocompleteModule,
     MatSidenavModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTooltipModule
   ],
   exports: [
     MatToolbarModule,
@@ -64,7 +67,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatRadioModule,
     MatAutocompleteModule,
     MatSidenavModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTooltipModule
   ]
 })
 export class AngularMaterialModule { }

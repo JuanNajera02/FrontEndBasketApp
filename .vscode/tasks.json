@@ -37,6 +37,27 @@
           }
         }
       }
+    },
+    {
+      "label": "Lint Current File",
+      "type": "shell",
+      "command": "npx",
+      "args": [
+        "eslint",
+        "${file}", // Automatically inserts the path of the current file
+      ],
+      "problemMatcher": [],
+    },
+    {
+      "label": "Lint and fix Current File",
+      "type": "shell",
+      "command": "npx",
+      "args": [
+        "eslint",
+        "${file}", // Automatically inserts the path of the current file
+        "--fix"
+      ],
+      "problemMatcher": [],
     }
   ]
 }

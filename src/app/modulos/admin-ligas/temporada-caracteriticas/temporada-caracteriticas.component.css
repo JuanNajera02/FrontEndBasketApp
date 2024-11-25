@@ -279,10 +279,14 @@ html, body {
 
 
 .contenedorPag {
-  min-height: 80vh; /* Asegura que la altura sea al menos del 100% del viewport */
+  display: flex;
+  /* min-height: 80vh; Asegura que la altura sea al menos del 100% del viewport */
   background-color: #d9d9d9;
+  flex: 1;
 }
-
+main{
+  flex:1;
+}
 
 .contenedorCaracteristicas{
   display: flex;

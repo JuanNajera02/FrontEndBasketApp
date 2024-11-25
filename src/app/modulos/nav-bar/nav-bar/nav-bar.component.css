@@ -12,9 +12,11 @@
   border-radius: 50%;
 }
 
-
-
 .navegacion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Para centrar verticalmente los elementos en la barra */
+  height: 62px;
   background-color: #48494A; /* Ajusta el color de fondo según tus preferencias */
   color: #FFF8F0; /* Ajusta el color de la fuente según tus preferencias */
 }
@@ -27,13 +29,14 @@
   border-radius: 50%;
 }
 
-
-
 .user-button {
   background-color: #48494A; /* Color de fondo del botón */
   color: #FFF8F0; /* Color del texto del botón */
 }
-
+.nav-bar-container{
+  display: flex;
+  align-items: center;
+}
 .mat-menu-item {
   border-bottom: 3px solid #48494A; /* Color de la separación entre elementos */
   padding: 8px 16px; /* Espacio interno de los elementos del menú */
@@ -42,16 +45,6 @@
 
 .mat-menu-item:last-child {
   border-bottom: none; /* Elimina el borde inferior del último elemento */
-}
-
-.mat-toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; /* Para centrar verticalmente los elementos en la barra */
-}
-
-.mat-toolbar button:not(:first-child):not(:last-child) {
-  margin-left: 100px; /* Espacio entre los elementos intermedios */
 }
 
 .btn-buscar {
@@ -66,7 +59,6 @@
   justify-content: center;
   cursor: pointer;
   padding: 0;
-  margin-left: 1200px;
 }
 
 .btn-buscar img.buscar {
@@ -91,8 +83,7 @@
 }
 
 .input-buscar {
-  width: 350px; /* Ajusta el tamaño del campo según tus preferencias */
-  margin-left: 650px;
+  width: 260px; /* Ajusta el tamaño del campo según tus preferencias */
 }
 
 .search-bar input::placeholder {

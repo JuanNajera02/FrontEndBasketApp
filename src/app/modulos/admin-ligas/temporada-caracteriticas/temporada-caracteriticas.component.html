@@ -1,153 +1,98 @@
 <app-nav-bar></app-nav-bar>
 <div class="contenedorPag">
-  <app-side-nav-season />
-
-  <div class="estadoContenedor">
-    <h2 class="estadoContenedor">Estado de la Temporada: {{estadoTemporada}}</h2>
-    <div *ngIf="equiposTemporada === 0">
-      <button (click)="openDialogPartidosCaract()" class="btnCaracteristicas ">Caracteristicas</button>
-    </div>
-  </div>
-
-  <div class="contenedorCaracteristicas">
-    <h3 class="contenidoCaracteristica">Cantidad de equipos en la Temporada: {{equiposTemporada}}</h3>
-    <h3 class="contenidoCaracteristica">Cantidad de enfrentamientos por equipo: {{enfrentaminetosEquipos}}</h3>
-    <h3 class="contenidoCaracteristica">Cantidad de equipos que pasan a playoffs: {{equiposPlayoff}}</h3>
-  </div>
-
-  <div class="contenedorPrincipal">
-
-    <div class="contenedorEquiposArbitro">
-      <mat-card class="contenedorEquipos">
-
-        <div class="contenedorTituloEquipo">
-          <mat-card-title class="titulo">Equipos</mat-card-title>
-          <!-- Botón para agregar equipo si hay menos de 8 equipos -->
-          <div *ngIf="estadoTemporada === 'INACTIVA' && cantidadEquipos < equiposTemporada">
-            <button (click)="openDialogEquipos()" class="btnMas">
-              <mat-icon aria-hidden="false" aria-label="Add">add</mat-icon>
-            </button>
-          </div>
-        </div>
-
-        <!-- Lista de equipos -->
-        <div *ngFor="let equipo of equiposTempList" class="contenedorlistaEquipos">
-          <div class="contenedorEquipes">
-            <p class="equipoNombre">{{ equipo.nombreEquipo }}</p>
-            <div *ngIf="estadoTemporada === 'INACTIVA'" class="botonEliminar">
-              <button mat-button (click)="eliminarEquipoTemp(idTemporada, equipo.nombreEquipo)">
-                <mat-icon aria-label="Remove">remove</mat-icon>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Mensaje si no hay equipos en la lista -->
-        <div *ngIf="equiposTempList.length === 0">
-          <p class="advertencia">{{ mensajeEquipos }}</p>
-        </div>
-      </mat-card>
-
-      <mat-card class="contenedorArbitros">
-        <div class="contenedorTituloArbitro">
-          <mat-card-title class="titulo">Árbitros</mat-card-title>
-          <div *ngIf="estadoTemporada === 'INACTIVA' || estadoTemporada === 'ACTIVA'">
-            <button (click)="openDialogArbitros()" class="btnMas">
-              <mat-icon aria-hidden="false" aria-label="Add">add</mat-icon>
-            </button>
-          </div>
-        </div>
-
-        <!-- Lista de árbitros -->
-        <div *ngFor="let arbitro of arbitrosTemp" class="contenedorListaArbitros">
-          <div class="contenedorArbi">
-            <p class="arbitroNombre">{{ arbitro.usuario }}</p>
-            <div *ngIf="estadoTemporada === 'INACTIVA'" class="botonEliminar">
-              <button mat-button (click)="eliminarArbitroTemp(idTemporada, arbitro.usuario)">
-                <mat-icon aria-label="Remove">remove</mat-icon>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Mensaje si no hay árbitros en la lista -->
-        <div *ngIf="arbitrosTemp.length === 0">
-          <p class="advertencia">{{ mensajeArbitros }}</p>
-        </div>
-      </mat-card>
-    </div>
-
-    <div class="partidosContenedor">
-      <div>
-        <h2 class="centrarPartidos tituloPartidos">Partidos</h2>
-
-        <div *ngIf="equiposTempList.length === equiposTemporada">
-          <div *ngIf="equiposPlayoff !== 0">
-            <div class="centrarPartidos" *ngIf="estadoTemporada === 'INACTIVA' || estadoTemporada === 'ACTIVA'">
-              <button class="botonPartidos" (click)="generarPartidos(idTemporada)">Generar Partidos</button>
-            </div>
-          </div>
-        </div>
-
-        <p class="mensajeArbitro">{{this.mensajePartidos}}</p>
+  <app-side-nav-season 
+  [teams]="equiposTempList" 
+  [seasonId]="idTemporada" 
+  [referees]="arbitrosTemp" 
+  [organizers]="organizers"
+  />
+  <main>
+    <div class="estadoContenedor">
+      <h2 class="estadoContenedor">Estado de la Temporada: {{estadoTemporada}}</h2>
+      <div *ngIf="equiposTemporada === 0">
+        <button (click)="openDialogPartidosCaract()" class="btnCaracteristicas ">Caracteristicas</button>
       </div>
+    </div>
 
-      <mat-table [dataSource]="partidosTemporada" class="tablaContenedor">
-        <ng-container matColumnDef="arbitro">
-          <mat-header-cell class="headerCelCentrado" *matHeaderCellDef>Arbitro</mat-header-cell>
-          <mat-cell *matCellDef="let partidoTemporada" class="celCentradoArbitros">
-            {{ partidoTemporada.arbitro }}
-            <div *ngIf="partidoTemporada.ganador === 'Sin concluir'" class="botonCentradoArbitros">
-              <div *ngIf="partidoTemporada.fechaInicio !== null">
-                <button mat-button (click)="agregarArbitroPartido(partidoTemporada.idPartido)">
-                  <mat-icon>person_add</mat-icon>
-                </button>
+    <div class="contenedorCaracteristicas">
+      <h3 class="contenidoCaracteristica">Cantidad de equipos en la Temporada: {{equiposTemporada}}</h3>
+      <h3 class="contenidoCaracteristica">Cantidad de enfrentamientos por equipo: {{enfrentaminetosEquipos}}</h3>
+      <h3 class="contenidoCaracteristica">Cantidad de equipos que pasan a playoffs: {{equiposPlayoff}}</h3>
+    </div>
+
+    <div class="contenedorPrincipal">
+
+      <div class="partidosContenedor">
+        <div>
+          <h2 class="centrarPartidos tituloPartidos">Partidos</h2>
+
+          <div *ngIf="equiposTempList.length === equiposTemporada">
+            <div *ngIf="equiposPlayoff !== 0">
+              <div class="centrarPartidos" *ngIf="estadoTemporada === 'INACTIVA' || estadoTemporada === 'ACTIVA'">
+                <button class="botonPartidos" (click)="generarPartidos(idTemporada)">Generar Partidos</button>
               </div>
             </div>
-          </mat-cell>
-        </ng-container>
+          </div>
 
-        <ng-container matColumnDef="equipo1">
-          <mat-header-cell class="headerCelCentrado" *matHeaderCellDef>Equipo 1</mat-header-cell>
-          <mat-cell class="celCentradoGeneral" *matCellDef="let partidoTemporada">{{ partidoTemporada.equipo1
-            }}</mat-cell>
-        </ng-container>
+          <p class="mensajeArbitro">{{this.mensajePartidos}}</p>
+        </div>
 
-        <ng-container matColumnDef="equipo2">
-          <mat-header-cell class="headerCelCentrado" *matHeaderCellDef>Equipo 2</mat-header-cell>
-          <mat-cell class="celCentradoGeneral" *matCellDef="let partidoTemporada">{{ partidoTemporada.equipo2
-            }}</mat-cell>
-        </ng-container>
+        <mat-table [dataSource]="partidosTemporada" class="tablaContenedor">
+          <ng-container matColumnDef="arbitro">
+            <mat-header-cell class="headerCelCentrado" *matHeaderCellDef>Arbitro</mat-header-cell>
+            <mat-cell *matCellDef="let partidoTemporada" class="celCentradoArbitros">
+              {{ partidoTemporada.arbitro }}
+              <div *ngIf="partidoTemporada.ganador === 'Sin concluir'" class="botonCentradoArbitros">
+                <div *ngIf="partidoTemporada.fechaInicio !== null">
+                  <button mat-button (click)="agregarArbitroPartido(partidoTemporada.idPartido)">
+                    <mat-icon>person_add</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </mat-cell>
+          </ng-container>
 
-        <ng-container matColumnDef="fase">
-          <mat-header-cell class="headerCelCentrado" *matHeaderCellDef>Fase</mat-header-cell>
-          <mat-cell class="celCentradoGeneral" *matCellDef="let partidoTemporada">{{ partidoTemporada.fase }}</mat-cell>
-        </ng-container>
+          <ng-container matColumnDef="equipo1">
+            <mat-header-cell class="headerCelCentrado" *matHeaderCellDef>Equipo 1</mat-header-cell>
+            <mat-cell class="celCentradoGeneral" *matCellDef="let partidoTemporada">{{ partidoTemporada.equipo1
+              }}</mat-cell>
+          </ng-container>
 
-        <ng-container matColumnDef="fechaInicio">
-          <mat-header-cell class="headerCelCentrado" *matHeaderCellDef>Fecha de Inicio</mat-header-cell>
-          <mat-cell class="celCentradoFecha" *matCellDef="let partidoTemporada">
-            {{ partidoTemporada.fechaInicio | date:'dd/MM/yyyy HH:mm:ss' }}
-            <div *ngIf="partidoTemporada.ganador === 'Sin concluir'" class="botonCentradoFecha">
-              <button mat-button (click)="agregarFechaPartido(partidoTemporada.idPartido)">
-                <mat-icon aria-hidden="false" aria-label="Calendario">event</mat-icon>
-              </button>
-            </div>
-          </mat-cell>
-        </ng-container>
+          <ng-container matColumnDef="equipo2">
+            <mat-header-cell class="headerCelCentrado" *matHeaderCellDef>Equipo 2</mat-header-cell>
+            <mat-cell class="celCentradoGeneral" *matCellDef="let partidoTemporada">{{ partidoTemporada.equipo2
+              }}</mat-cell>
+          </ng-container>
 
-        <ng-container matColumnDef="ganador">
-          <mat-header-cell class="headerCelCentrado" *matHeaderCellDef>Ganador</mat-header-cell>
-          <mat-cell *matCellDef="let partidoTemporada" class="celCentradoGeneral">{{ partidoTemporada.ganador
-            }}</mat-cell>
-        </ng-container>
+          <ng-container matColumnDef="fase">
+            <mat-header-cell class="headerCelCentrado" *matHeaderCellDef>Fase</mat-header-cell>
+            <mat-cell class="celCentradoGeneral" *matCellDef="let partidoTemporada">{{ partidoTemporada.fase }}</mat-cell>
+          </ng-container>
 
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-      </mat-table>
+          <ng-container matColumnDef="fechaInicio">
+            <mat-header-cell class="headerCelCentrado" *matHeaderCellDef>Fecha de Inicio</mat-header-cell>
+            <mat-cell class="celCentradoFecha" *matCellDef="let partidoTemporada">
+              {{ partidoTemporada.fechaInicio | date:'dd/MM/yyyy HH:mm:ss' }}
+              <div *ngIf="partidoTemporada.ganador === 'Sin concluir'" class="botonCentradoFecha">
+                <button mat-button (click)="agregarFechaPartido(partidoTemporada.idPartido)">
+                  <mat-icon aria-hidden="false" aria-label="Calendario">event</mat-icon>
+                </button>
+              </div>
+            </mat-cell>
+          </ng-container>
 
+          <ng-container matColumnDef="ganador">
+            <mat-header-cell class="headerCelCentrado" *matHeaderCellDef>Ganador</mat-header-cell>
+            <mat-cell *matCellDef="let partidoTemporada" class="celCentradoGeneral">{{ partidoTemporada.ganador
+              }}</mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </mat-table>
+
+      </div>
     </div>
-  </div>
-</div>
+  </main>
 
-<app-footer-component></app-footer-component>
+</div>

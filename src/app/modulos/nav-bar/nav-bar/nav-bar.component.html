@@ -1,9 +1,14 @@
-<mat-toolbar class="navegacion">
-  <button mat-button class="app-logo-button" (click)="goHome()">
-    <img src="../../../../assets/imgs/logo_gris.jpg" alt="Logo" class="app-logo">
-  </button>
+<nav class="navegacion">
 
-  <mat-menu #menu="matMenu">
+  <div class="nav-bar-container">
+    
+    <button mat-button class="app-logo-button" (click)="goHome()">
+      <img src="../../../../assets/imgs/logo_gris.jpg" alt="Logo" class="app-logo">
+    </button>
+  
+    <div class="span">Create Contest</div>
+  </div>
+    <!-- <mat-menu #menu="matMenu">
     <ng-container *ngIf="tipoUsuario === 'ANONIMO'; else LogoutMenu">
       <button mat-menu-item class="mat-menu-item" (click)="login()">Iniciar Sesion</button>
       <button mat-menu-item class="mat-menu-item" (click)="register()">Registrarse</button>
@@ -13,22 +18,18 @@
       <button mat-menu-item class="mat-menu-item" (click)="goPerfil()">Ver Perfil</button>
       <button mat-menu-item class="mat-menu-item" (click)="logout()">Salir</button>
     </ng-template>
-  </mat-menu>
+  </mat-menu> -->
 
 
-    <!-- <button mat-button>Resultados</button>
-    <button mat-button>Calendario</button>
-    <button mat-button>Equipos</button>
-    <button mat-button>Estadisticas</button>
-    <button mat-button>Jugadores</button> -->
-
+  <div class="nav-bar-container">
     <div class="search-bar">
       <button class="btn-buscar" *ngIf="!searching" (click)="startSearch()">
         <img src="../../../../assets/imgs/lupa2.png" alt="Buscar" class="buscar">
       </button>
 
       <div *ngIf="searching" class="search-options">
-        <input class="input-buscar" (keyup)="onTyping()" (keyup.enter)="performSearch()" placeholder="Escribe tu búsqueda aquí ..." [(ngModel)]="searchQuery" [matAutocomplete]="auto">
+        <input class="input-buscar" (keyup)="onTyping()" (keyup.enter)="performSearch()"
+          placeholder="Search" [(ngModel)]="searchQuery" [matAutocomplete]="auto">
         <mat-autocomplete #auto="matAutocomplete">
           <mat-option *ngFor="let result of searchResults$ | async" [value]="getValue(result)">
             {{ getContent(result) }}
@@ -43,14 +44,12 @@
       </div>
     </div>
 
-
-
-  <div class="button-container">
-    <button mat-button [matMenuTriggerFor]="menu" class="app-logo-button user-button">
+    <button mat-button (click)="openSideNav()" class="app-logo-button user-button">
       <img src="../../../../assets/imgs/user.png" alt="Icono de menú" class="user-logo">
     </button>
+
   </div>
 
 
-
-</mat-toolbar>
+</nav>
+<app-sidebar [isOpen]="isOpenSideNav" />

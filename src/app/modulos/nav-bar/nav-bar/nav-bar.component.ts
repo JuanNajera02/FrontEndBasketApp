@@ -15,7 +15,6 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent implements OnInit {
-  myControl = new FormControl();
   searching = false;
   searchQuery = '';
   selectedCategory: string = 'usuarios';
@@ -25,22 +24,27 @@ export class NavBarComponent implements OnInit {
   searchResults$ = new BehaviorSubject<any[]>([]);
   temporadaId: string = '';
   ligaId: string = '';
-
+  public isOpenSideNav:boolean = false;
   filteredResults: Observable<any[]>;
-
+  
   categories: string[] = ['usuarios', 'temporadas', 'ligas', 'equipos'];
-
+  
   usuario: string = localStorage.getItem('usuario') || '';
   tipoUsuario: string = '';
-
+  
   constructor(private app: NavbarService, private router: Router, private auth: authService, private elRef: ElementRef, private searchService: NavBarService) {
     this.filteredResults = this.myControl.valueChanges.pipe(
       startWith(''),
       map((value) => this._filter(value))
     );
-
+    
+  }
+  
+  openSideNav():void {
+    this.isOpenSideNav = !this.isOpenSideNav;
   }
 
+  myControl = new FormControl();
   startSearch() {
     this.searching = true;
   }

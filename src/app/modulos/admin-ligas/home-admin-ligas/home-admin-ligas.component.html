@@ -15,7 +15,7 @@
           <a class="card-title" (click)="openDialogModificarLiga(liga.idLiga, liga.nombreLiga)">{{ liga.nombreLiga }}</a>
           <ul class="list-group list-group-flush temporada-list">
             <li *ngFor="let temporada of temporadasPorLiga[liga.idLiga]; let j = index" class="list-group-item">
-              <button class="temporadas" (click)="verTemporada(temporada.idTemporada)">{{ temporada.nombreTemporada }}</button>
+              <button class="temporadas" (click)="verTemporada(temporada.idTemporada,liga.idLiga)">{{ temporada.nombreTemporada }}</button>
             </li>
           </ul>
         </div>

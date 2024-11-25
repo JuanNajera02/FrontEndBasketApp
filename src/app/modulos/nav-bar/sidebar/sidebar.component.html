@@ -1,0 +1,54 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="over" [opened]="isOpen" class="sidenav" position="end"  >
+    <mat-toolbar color="primary" class="sidenav-toolbar">Navigation</mat-toolbar>
+    <mat-nav-list>
+      <mat-list-item class="nav-item">
+        <mat-icon class="nav-icon">dashboard</mat-icon>
+        <span>My Profile</span>
+      </mat-list-item>
+      <!-- Expandable Teams Section -->
+
+      <mat-list-item class="nav-item">
+        <mat-icon class="nav-icon">inbox</mat-icon>
+        <span>My Contests</span>
+      </mat-list-item>
+
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon class="nav-icon">view_kanban</mat-icon>
+              <span>My Teams</span>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <mat-nav-list class="nested-nav-list">
+            <mat-list-item *ngFor="let team of teams" class="nested-nav-item">
+              <mat-icon class="nav-icon">group</mat-icon>
+              <span>{{ team }}</span>
+            </mat-list-item>
+          </mat-nav-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <mat-list-item class="nav-item">
+        <mat-icon class="nav-icon">people</mat-icon>
+        <span>My Matches</span>
+      </mat-list-item>
+
+      <mat-list-item class="nav-item">
+        <mat-icon class="nav-icon">people</mat-icon>
+        <span>My Statistics</span>
+      </mat-list-item>
+      <mat-list-item class="nav-item">
+        <mat-icon class="nav-icon">calendar_month</mat-icon>
+        <span>My Calendar</span>
+      </mat-list-item>
+
+      <mat-list-item class="nav-item">
+        <mat-icon class="nav-icon">calendar_month</mat-icon>
+        <span>Log out</span>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+</mat-sidenav-container>

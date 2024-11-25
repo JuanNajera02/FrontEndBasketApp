@@ -8,31 +8,75 @@
         </mat-list-item>
       <!-- Expandable Teams Section -->
       <mat-accordion>
-        <mat-expansion-panel   [expanded]="true">
-          <mat-expansion-panel-header>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header class="team-header">
             <mat-panel-title>
               <mat-icon class="nav-icon">view_kanban</mat-icon>
-              <span>Teams</span>
+              <span>Teams ({{teams.length}})</span>
             </mat-panel-title>
+            <mat-icon matTooltip="add new team" matTooltipPosition="above"  class="nav-icon add-team" (click)="addTeam($event)">group_add</mat-icon>
           </mat-expansion-panel-header>
+          
 
           <mat-nav-list class="nested-nav-list">
             <mat-list-item *ngFor="let team of teams" class="nested-nav-item">
-              <mat-icon class="nav-icon">group</mat-icon>
-              <span>{{ team }}</span>
+              <div class="container-list-item">
+                <div class="team-name">
+                  <mat-icon class="nav-icon">groups</mat-icon>
+                  <span>{{ team.nombreEquipo }}</span>
+                </div>
+                <mat-icon class="nav-icon" (click)="removeTeam($event,seasonId,team.nombreEquipo)">delete</mat-icon>
+              </div>
+            </mat-list-item>
+          </mat-nav-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <!-- Expandable Referees Section -->
+
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header class="team-header">
+            <mat-panel-title>
+              <mat-icon class="nav-icon">view_kanban</mat-icon>
+              <span>Referees ({{referees.length}})</span>
+            </mat-panel-title>
+            <mat-icon matTooltip="add new Referee" matTooltipPosition="above"  class="nav-icon add-team" (click)="addReferee($event)">group_add</mat-icon>
+          </mat-expansion-panel-header>
+          
+
+          <mat-nav-list class="nested-nav-list">
+            <mat-list-item *ngFor="let referee of referees" class="nested-nav-item">
+              <div class="container-list-item">
+                <div class="team-name">
+                  <mat-icon class="nav-icon">person</mat-icon>
+                  <span>{{ referee.nombre }}</span>
+                </div>
+                <mat-icon class="nav-icon" (click)="removeReferee($event,seasonId, referee.usuario)">delete</mat-icon>
+              </div>
+            </mat-list-item>
+          </mat-nav-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+      
+      <!-- EXPANDABLE ORGANIZERS SECTION -->
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header class="team-header">
+            <mat-panel-title>
+              <mat-icon class="nav-icon">view_kanban</mat-icon>
+              <span>Organizers ({{organizers.length}})</span>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          
+          <mat-nav-list class="nested-nav-list">
+            <mat-list-item *ngFor="let organizer of organizers" class="nested-nav-item">
+                <mat-icon class="nav-icon">person</mat-icon>
+                <span>{{ organizer }}</span>
             </mat-list-item>
           </mat-nav-list>
         </mat-expansion-panel>
       </mat-accordion>
 
-        <mat-list-item class="nav-item">
-          <mat-icon class="nav-icon">inbox</mat-icon>
-          <span>Referees</span>
-        </mat-list-item>
-        <mat-list-item class="nav-item">
-          <mat-icon class="nav-icon">people</mat-icon>
-          <span>Organizers</span>
-        </mat-list-item>
         <mat-list-item class="nav-item">
           <mat-icon class="nav-icon">calendar_month</mat-icon>
           <span>Calendar</span>

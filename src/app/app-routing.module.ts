@@ -30,8 +30,12 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'temporadaCaracteristicas/:idTemporada',
+    path: 'temporadaCaracteristicas/:idTemporada/:idLiga',
     component: TemporadaCaracteriticasComponent
+  },
+  {
+    path:'contest',
+    loadChildren:() => import("./modulos/contest/contest.module").then(m => m.ContestModule)
   },
   { path: 'ver-estadisticas-de-jugador-por-partido/:claveDelPartido',
     component: RegistroDeEstadisticasDeJugadoresPorPartidoComponent
