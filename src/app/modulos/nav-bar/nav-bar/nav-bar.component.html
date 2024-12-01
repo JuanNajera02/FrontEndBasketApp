@@ -1,12 +1,12 @@
 <nav class="navegacion">
 
   <div class="nav-bar-container">
-    
+
     <button mat-button class="app-logo-button" (click)="goHome()">
       <img src="../../../../assets/imgs/logo_gris.jpg" alt="Logo" class="app-logo">
     </button>
-  
-    <div class="span">Create Contest</div>
+
+    <span routerLink="/contest" class="btn-create-contest">Create Contest</span>
   </div>
     <!-- <mat-menu #menu="matMenu">
     <ng-container *ngIf="tipoUsuario === 'ANONIMO'; else LogoutMenu">

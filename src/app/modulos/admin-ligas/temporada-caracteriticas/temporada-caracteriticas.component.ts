@@ -1,10 +1,9 @@
-import { Component } from "@angular/core";
+  import { Component } from "@angular/core";
 import { OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 import { TemporadasService } from "../adminLigasService/temporadas.service";
 import { ActivatedRoute } from "@angular/router";
-import { AsignarArbitroComponent } from "../asignar-arbitro/asignar-arbitro.component";
 import { Equipos } from "../interfaces/Equipos";
 import { AgregarEquipoComponent } from "../agregar-equipo/agregar-equipo.component";
 import { Partidos } from "../interfaces/Partidos";
@@ -41,7 +40,9 @@ export class TemporadaCaracteriticasComponent implements OnInit{
   equiposPlayoff: number = 0;
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
+    this.route.parent?.params.subscribe(params => {
+      console.log(params);
+
       this.idTemporada = +params["idTemporada"];
       localStorage.setItem("idTemporada", this.idTemporada.toString());
       this.obtenerArbitrosTemp(this.idTemporada);
@@ -114,7 +115,7 @@ export class TemporadaCaracteriticasComponent implements OnInit{
     this.ligaService.obtenerAdminsDeLiga(idLiga).subscribe({
       next: (organizers) => {
         this.organizers = organizers;
-        
+
       }
     });
   }
@@ -130,11 +131,11 @@ export class TemporadaCaracteriticasComponent implements OnInit{
   obtenerEquiposTemp(idTemporada: number) {
     this.tempService.obtenerEquiposTemporada(idTemporada).subscribe({
       next: (data) => {
-        
+
         this.equiposTemp = data;
         this.equiposTempList = Object.keys(data).map(key => ({ nombreEquipo: key, equipo: data[key] }));
         console.log(this.equiposTempList);
-        
+
         this.cantidadEquipos = this.equiposTempList.length;
         if (this.cantidadEquipos === this.equiposTemporada)
             this.dialog.closeAll();

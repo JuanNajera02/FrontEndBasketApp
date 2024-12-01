@@ -8,6 +8,7 @@ import { HomeModule } from './modulos/home/home.module';
 import { ArbitrosModule } from './modulos/arbitros/arbitros.module';
 import { AdminLigasModule } from './modulos/admin-ligas/admin-ligas.module';
 import { VistasGeneralesModule } from './modulos/vistas-generales/vistas-generales.module';
+import { NavBarModule } from "./modulos/nav-bar/nav-bar.module";
 
 @NgModule({
   declarations: [
@@ -21,8 +22,9 @@ import { VistasGeneralesModule } from './modulos/vistas-generales/vistas-general
     HomeModule,
     ArbitrosModule,
     AdminLigasModule,
-    VistasGeneralesModule
-  ],
+    VistasGeneralesModule,
+    NavBarModule
+],
   providers: [],
   bootstrap: [AppComponent]
 })

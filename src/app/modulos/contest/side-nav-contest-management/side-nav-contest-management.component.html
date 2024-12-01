@@ -2,7 +2,7 @@
     <mat-sidenav mode="side" opened class="sidenav">
       <mat-toolbar color="primary" class="sidenav-toolbar">Navigation</mat-toolbar>
       <mat-nav-list>
-        <mat-list-item class="nav-item">
+        <mat-list-item class="nav-item" [routerLink]="'overview'" routerLinkActive="active">
           <mat-icon class="nav-icon">dashboard</mat-icon>
           <span>Overview</span>
         </mat-list-item>
@@ -16,7 +16,7 @@
             </mat-panel-title>
             <mat-icon matTooltip="add new team" matTooltipPosition="above"  class="nav-icon add-team" (click)="addTeam($event)">group_add</mat-icon>
           </mat-expansion-panel-header>
-          
+
 
           <mat-nav-list class="nested-nav-list">
             <mat-list-item *ngFor="let team of teams" class="nested-nav-item">
@@ -42,7 +42,7 @@
             </mat-panel-title>
             <mat-icon matTooltip="add new Referee" matTooltipPosition="above"  class="nav-icon add-team" (click)="addReferee($event)">group_add</mat-icon>
           </mat-expansion-panel-header>
-          
+
 
           <mat-nav-list class="nested-nav-list">
             <mat-list-item *ngFor="let referee of referees" class="nested-nav-item">
@@ -57,7 +57,7 @@
           </mat-nav-list>
         </mat-expansion-panel>
       </mat-accordion>
-      
+
       <!-- EXPANDABLE ORGANIZERS SECTION -->
       <mat-accordion>
         <mat-expansion-panel [expanded]="true">
@@ -67,7 +67,7 @@
               <span>Organizers ({{organizers.length}})</span>
             </mat-panel-title>
           </mat-expansion-panel-header>
-          
+
           <mat-nav-list class="nested-nav-list">
             <mat-list-item *ngFor="let organizer of organizers" class="nested-nav-item">
                 <mat-icon class="nav-icon">person</mat-icon>
@@ -81,7 +81,12 @@
           <mat-icon class="nav-icon">calendar_month</mat-icon>
           <span>Calendar</span>
         </mat-list-item>
-      </mat-nav-list>
+
+        <mat-list-item class="nav-item" [routerLink]="'matches'" routerLinkActive="active">
+          <mat-icon class="nav-icon">sports_soccer</mat-icon>
+          <span>Matches</span>
+        </mat-list-item>
+
+    </mat-nav-list>
     </mat-sidenav>
   </mat-sidenav-container>
-  

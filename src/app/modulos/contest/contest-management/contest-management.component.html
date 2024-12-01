@@ -1,0 +1,12 @@
+
+<div class="contest-management-container">
+  <app-side-nav-contest-management
+  [teams]="teams"
+  [seasonId]="seasonId"
+  [referees]="referees"
+  [organizers]="organizers"
+  />
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

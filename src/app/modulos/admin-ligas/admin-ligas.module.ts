@@ -14,7 +14,6 @@ import { AgregarArbitroPartidoComponent } from './agregar-arbitro-partido/agrega
 import { AgregarFechaPartidoComponent } from './agregar-fecha-partido/agregar-fecha-partido.component';
 import { FooterModule } from '../footer/footer.module';
 import { CaracteristicasPartidosComponent } from './caracteristicas-partidos/caracteristicas-partidos.component';
-import { SideNavSeasonComponent } from './temporada-caracteriticas/side-nav-season/side-nav-season.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +26,7 @@ import { SideNavSeasonComponent } from './temporada-caracteriticas/side-nav-seas
     AgregarEquipoComponent,
     AgregarArbitroPartidoComponent,
     AgregarFechaPartidoComponent,
-    CaracteristicasPartidosComponent,
-    SideNavSeasonComponent
+    CaracteristicasPartidosComponent
   ],
   imports: [
     AngularMaterialModule,

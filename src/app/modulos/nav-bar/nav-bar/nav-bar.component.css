@@ -119,4 +119,6 @@
   gap: 10px;
 }
 
-
+.btn-create-contest{
+  cursor: pointer;
+}

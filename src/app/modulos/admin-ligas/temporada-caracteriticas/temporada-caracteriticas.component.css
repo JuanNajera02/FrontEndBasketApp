@@ -170,7 +170,7 @@
   max-height: 300px;
   /* permite scollbar */
   overflow-y: auto;
-  
+
 }
 
 .celCentradoGeneral {
@@ -281,7 +281,7 @@ html, body {
 .contenedorPag {
   display: flex;
   /* min-height: 80vh; Asegura que la altura sea al menos del 100% del viewport */
-  background-color: #d9d9d9;
+  background-color: #ffffff;
   flex: 1;
 }
 main{

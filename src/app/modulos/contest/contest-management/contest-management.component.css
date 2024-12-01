@@ -1,0 +1,8 @@
+.contest-management-container {
+  display: flex;
+  background-color: #ffffff;
+  width: 100%;
+}
+.content {
+  flex: 1;
+}

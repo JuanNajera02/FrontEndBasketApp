@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   imports: [
     AngularMaterialModule,
     CommonModule,
+    RouterModule
   ],
   exports: [
     NavBarComponent

@@ -17,6 +17,7 @@
 
 .sidenav-toolbar {
     font-size: 16px;
+    height: 50px;
 }
 
 .nav-item {
@@ -56,10 +57,13 @@
 }
 .container-list-item > .nav-icon {
     margin-right: 0;
-} 
+}
 /* Optional hover effects */
 .nav-item:hover {
     cursor: pointer;
+}
+.nav-item.active{
+  background-color: #d0d0ce;
 }
 
 span {
