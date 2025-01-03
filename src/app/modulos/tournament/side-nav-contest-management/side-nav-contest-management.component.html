@@ -49,9 +49,9 @@
               <div class="container-list-item">
                 <div class="team-name">
                   <mat-icon class="nav-icon">person</mat-icon>
-                  <span>{{ referee.nombre }}</span>
+                  <span>{{ referee.name + " " + referee.lastName }}</span>
                 </div>
-                <mat-icon class="nav-icon" (click)="removeReferee($event,seasonId, referee.usuario)">delete</mat-icon>
+                <mat-icon class="nav-icon" (click)="removeReferee($event,seasonId, referee.username)">delete</mat-icon>
               </div>
             </mat-list-item>
           </mat-nav-list>

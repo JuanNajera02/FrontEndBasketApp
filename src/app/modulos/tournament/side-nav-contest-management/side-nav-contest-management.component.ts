@@ -15,7 +15,7 @@ export class SideNavContestManagementComponent {
 
   @Input() teams: Team[] = [];
   @Input() referees: Referee[] = [];
-  @Input() seasonId: number = 0;
+  @Input() seasonId: string = "";
   @Input() organizers: string[] = [];
 
   addTeam($event: Event): void {
@@ -25,7 +25,7 @@ export class SideNavContestManagementComponent {
     $event.stopPropagation();
   }
 
-  removeTeam($event: Event, seasonId: number, teamToRemove: string) {
+  removeTeam($event: Event, seasonId: string, teamToRemove: string) {
     // eliminarEquipoTemp(idTemporada: number, nombreEquipo: string) {
     this.tempService.eliminarEquipoDeTemporada(seasonId, teamToRemove).subscribe({
       next: () => {
@@ -45,7 +45,7 @@ export class SideNavContestManagementComponent {
     $event.stopPropagation();
   }
 
-  removeReferee($event: Event, seasonId: number, username: string) {
+  removeReferee($event: Event, seasonId: string, username: string) {
     this.tempService.eliminarArbitroDeTemporada(seasonId, username).subscribe({
       next: () => {
         this.tempService.emitNuevoArbitroAsignado();

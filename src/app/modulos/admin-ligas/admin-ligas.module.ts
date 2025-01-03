@@ -14,6 +14,7 @@ import { AgregarArbitroPartidoComponent } from './agregar-arbitro-partido/agrega
 import { AgregarFechaPartidoComponent } from './agregar-fecha-partido/agregar-fecha-partido.component';
 import { FooterModule } from '../footer/footer.module';
 import { CaracteristicasPartidosComponent } from './caracteristicas-partidos/caracteristicas-partidos.component';
+import { DirectiveModule } from 'src/app/directives/directive.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CaracteristicasPartidosComponent } from './caracteristicas-partidos/car
     CommonModule,
     BrowserAnimationsModule,
     NavBarModule,
-    FooterModule
+    FooterModule,
+    DirectiveModule
   ],
   exports: [
     HomeAdminLigasComponent,

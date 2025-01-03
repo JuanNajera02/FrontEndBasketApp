@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContestManagementComponent } from './contest-management.component';
+import { TournamentManagementComponent } from './tournament-management.component';
 
 describe('ContestManagementComponent', () => {
-  let component: ContestManagementComponent;
-  let fixture: ComponentFixture<ContestManagementComponent>;
+  let component: TournamentManagementComponent;
+  let fixture: ComponentFixture<TournamentManagementComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ContestManagementComponent]
+      declarations: [TournamentManagementComponent]
     });
-    fixture = TestBed.createComponent(ContestManagementComponent);
+    fixture = TestBed.createComponent(TournamentManagementComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

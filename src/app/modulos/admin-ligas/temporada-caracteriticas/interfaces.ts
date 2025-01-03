@@ -3,6 +3,7 @@ export interface Team {
     equipo:string
 }
 export interface Referee {
-    usuario:string,
-    nombre:string
+    username:string,
+    name:string,
+    lastName:string
 }

@@ -24,7 +24,8 @@ import { NavBarModule } from "./modulos/nav-bar/nav-bar.module";
     AdminLigasModule,
     VistasGeneralesModule,
     NavBarModule
-],
+  ],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent]
 })

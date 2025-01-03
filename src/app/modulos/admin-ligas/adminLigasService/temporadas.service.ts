@@ -177,7 +177,7 @@ export class TemporadasService {
     });
   }
 
-  eliminarEquipoDeTemporada(temporadaId: number, nombreEquipo: string) {
+  eliminarEquipoDeTemporada(temporadaId: string, nombreEquipo: string) {
     const headers = this.tokenService.createHeaders();
 
     const httpOptions = {
@@ -191,7 +191,7 @@ export class TemporadasService {
     return this.http.delete(url + '/EquipoTemporada/eliminarEquipoTemporada', httpOptions);
   }
 
-  eliminarArbitroDeTemporada(temporadaId: number, usuario: string) {
+  eliminarArbitroDeTemporada(temporadaId: string, usuario: string) {
     const headers = this.tokenService.createHeaders();
 
     const httpOptions = {

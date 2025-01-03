@@ -1,16 +1,16 @@
 <div class="create-contest-container">
 
   <main class="main">
-    <header>Create contest</header>
+    <header>Create tournament</header>
 
     <form [formGroup]="createTournament" (ngSubmit)="onSubmit()">
       <div class="container-form-fields">
-        <!-- Tournament Name -->
+        <!-- TOURNAMENT NAME -->
         <div class="form-field">
           <label for="name">Tournament Name:</label>
           <div class="input-wrapper">
-            <input type="text" id="name" formControlName="name" placeholder="Enter tournament name" />
-            <div class="errors" id="name-errors">
+            <input [readOnly]="true" type="text" id="name" formControlName="name" placeholder="Enter tournament name" />
+            <div *ngIf="name.touched && name.errors" class="errors" id="name-errors">
               <small *ngIf="name.touched && name.errors?.['required']">name is required.</small>
               <small *ngIf="name.touched && name.errors?.['minlength']">name must be at least 1 character long.</small>
             </div>
@@ -22,7 +22,7 @@
           <label for="sport">Sport:</label>
           <div class="input-wrapper">
             <select id="sport" formControlName="sport">
-              <option  [value]="'football'">Football</option>
+              <option [value]="'football'">Football</option>
             </select>
           </div>
         </div>
@@ -32,10 +32,11 @@
       <div class="container-form-fields">
         <!-- CONTEST TYPE -->
         <div class="form-field">
-          <label for="contest-type">Contest Type:</label>
+          <label for="contest-type">Tournament Type:</label>
           <div class="input-wrapper">
-            <select id="contest-type" formControlName="contestType">
-              <option  [value]="contestType" *ngFor="let contestType of contestTypes">{{getContestTypeName(contestType)}}</option>
+            <select id="contest-type" formControlName="tournamentType">
+              <option [value]="type" *ngFor="let type of tournamentTypes">{{getTournamentTypeName(type)}}
+              </option>
             </select>
           </div>
         </div>
@@ -45,10 +46,7 @@
           <label for="sport">Start date:</label>
           <div class="input-wrapper">
             <input type="date" id="startDate" formControlName="startDate" placeholder="Enter start date" />
-            <div class="errors" id="name-errors">
-              <!-- <small *ngIf="name.touched && name.errors?.['required']">name is required.</small>
-              <small *ngIf="name.touched && name.errors?.['minlength']">name must be at least 1 character long.</small> -->
-            </div>
+
           </div>
         </div>
 
@@ -60,10 +58,7 @@
           <label for="sport">End date:</label>
           <div class="input-wrapper">
             <input type="date" id="startDate" formControlName="startDate" placeholder="Enter start date" />
-            <div class="errors" id="name-errors">
-              <!-- <small *ngIf="name.touched && name.errors?.['required']">name is required.</small>
-              <small *ngIf="name.touched && name.errors?.['minlength']">name must be at least 1 character long.</small> -->
-            </div>
+
           </div>
         </div>
 
@@ -75,37 +70,24 @@
         <div class="form-field">
           <label for="">About the Tournament:</label>
           <div class="input-wrapper">
-            <textarea class="about-tournament" name="" id=""></textarea>
-            <div class="errors" id="name-errors">
-              <!-- <small *ngIf="name.touched && name.errors?.['required']">name is required.</small>
-               <small *ngIf="name.touched && name.errors?.['minlength']">name must be at least 1 character long.</small> -->
-            </div>
+            <textarea formControlName="description" class="about-tournament" name="" id=""></textarea>
+
           </div>
         </div>
       </div>
-      
+
+      <!-- RULES -->
       <div class="container-form-fields">
         <div class="form-field">
           <label for="">Rules:</label>
           <div class="input-wrapper">
-            <textarea class="rules" name="" id=""></textarea>
-            <div class="errors" id="name-errors">
-              <!-- <small *ngIf="name.touched && name.errors?.['required']">name is required.</small>
-               <small *ngIf="name.touched && name.errors?.['minlength']">name must be at least 1 character long.</small> -->
-            </div>
+            <textarea formControlName="rules" class="rules" name="" id=""></textarea>
           </div>
         </div>
       </div>
 
-      <!-- GOOGLE MAPS -->
-      <div class="google-map-container">
-        <google-map class="google-maps" height="300px" [center]="center" [zoom]="zoom"
-          (mapClick)="moveMap($event)" (mapMousemove)="move($event)">
-        </google-map>
-      </div>
-
       <!-- SAVE BUTTON -->
-      <button class="save" type="submit">SAVE</button>
+      <button class="save" type="submit">{{isEditing() ? "EDIT" : "SAVE"}}</button>
     </form>
   </main>
 </div>
