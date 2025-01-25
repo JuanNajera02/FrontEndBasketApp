@@ -1,0 +1,23 @@
+/* Estilos para el input */
+.input-wrapper {
+  margin-top: 3px;
+}
+
+input {
+  display: block;
+  padding: 7px;
+  width: 100%;
+  font-size: 14px;
+  border-radius: 6px;
+  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset;
+  background: rgba(242, 241, 238, 0.6);
+  cursor: text;
+  border: none;
+  background: none;
+  outline-color: #3f7cff;
+}
+
+.errors {
+  color: red;
+  font-size: 12px;
+}

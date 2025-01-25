@@ -1,0 +1,38 @@
+<div class="add-player-to-team-container">
+  <header>
+    <h1>Add player</h1>
+    <mat-icon (click)="closeModal()" class="close-icon">close</mat-icon>
+  </header>
+  <div class="body">
+
+  <form class="add-player-form" [formGroup]="addPlayerToTeamForm" (ngSubmit)="addPlayerToTeam(data.teamId,data.tournamentId)">
+
+    <app-input
+      label="Name"
+      [control]="addPlayerToTeamForm.controls['name']"
+      placeholder="Enter name"
+      type="text"/>
+
+    <app-input
+      label="Email"
+      [control]="addPlayerToTeamForm.controls['email']"
+      placeholder="Enter email"
+      type="text"/>
+
+    <app-input
+      label="Position"
+      [control]="addPlayerToTeamForm.controls['position']"
+      placeholder="Enter position"
+      type="text"/>
+
+    <app-button [className]="'btn-save'" [text]="'Save'" />
+  </form>
+
+  <div class="player-table-container">
+    <app-player-table [players]="players"/>
+  </div>
+
+</div>
+
+
+</div>

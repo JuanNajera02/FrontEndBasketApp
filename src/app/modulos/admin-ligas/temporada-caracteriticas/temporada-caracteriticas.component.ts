@@ -5,7 +5,7 @@ import { Router } from "@angular/router";
 import { TemporadasService } from "../adminLigasService/temporadas.service";
 import { ActivatedRoute } from "@angular/router";
 import { Equipos } from "../interfaces/Equipos";
-import { AgregarEquipoComponent } from "../agregar-equipo/agregar-equipo.component";
+import { AddTeamComponent } from "../../teams/add-team/add-team.component";
 import { Partidos } from "../interfaces/Partidos";
 import { AgregarArbitroPartidoComponent } from "../agregar-arbitro-partido/agregar-arbitro-partido.component";
 import { AgregarFechaPartidoComponent } from "../agregar-fecha-partido/agregar-fecha-partido.component";
@@ -145,7 +145,7 @@ export class TemporadaCaracteriticasComponent implements OnInit{
   }
 
   openDialogEquipos(): void {
-    this.dialog.open(AgregarEquipoComponent,{
+    this.dialog.open(AddTeamComponent,{
       width: "250px",
     });
   }

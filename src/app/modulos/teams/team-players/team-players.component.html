@@ -1,0 +1,11 @@
+<div class="team-players-container">
+  <header class="team-players-header">
+    <h1>Team Players</h1>
+    <app-button
+    [className]="'btn-add-player'"
+    (click)="openAddPlayerModal()"
+    text="Add Player"/>
+  </header>
+
+  <app-player-table [players]="players"/>
+</div>

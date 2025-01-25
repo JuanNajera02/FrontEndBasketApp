@@ -1,45 +1,45 @@
-import { Component, OnInit } from "@angular/core";
-import { TemporadasService } from "../../admin-ligas/adminLigasService/temporadas.service";
-import { LigasServiceService } from "../../admin-ligas/adminLigasService/ligas-service.service";
-import { Referee, Team } from "../../admin-ligas/temporada-caracteriticas/interfaces";
-import { ActivatedRoute } from "@angular/router";
-import { TournamentService } from "../tournament.service";
-import { emptyTournament, Tournament, User } from "../interface";
+import { TeamService } from './../../teams/teamService/team.service';
+import { Component, inject, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
+import { Referee } from "../../admin-ligas/temporada-caracteriticas/interfaces";
+import { emptyTournament, Team, Tournament, User } from "../interface";
 
 @Component({
   selector: "app-tournament-management",
   templateUrl: "./tournament-management.component.html",
   styleUrls: ["./tournament-management.component.css"]
 })
-export class TournamentManagementComponent implements OnInit {
-
-  constructor(
-    private tempService: TemporadasService,
-    private route: ActivatedRoute
-  ) { }
+export class TournamentManagementComponent implements OnInit,OnChanges {
+  private teamServ = inject(TeamService)
 
   // PUBLIC
   public teams: Team[] = [];
   public referees: Referee[] = [];
   public organizers: string[] = [];
-  public tournament: Tournament = emptyTournament;
+  @Input() tournament: Tournament = emptyTournament;
   // PRIVATE
 
-  ngOnInit(): void {
-    this.tournament = this.route.snapshot.data["tournamentData"];
-    this.updateTournamentUI(this.tournament);
+  ngOnChanges(changes: SimpleChanges): void {
+    if(changes['tournament']){
+      this.updateTournamentUI(this.tournament)
+    }
   }
 
-  updateTournamentUI(tournament: Tournament) {
+  ngOnInit(): void {
+    this.updateTournamentUI(this.tournament);
+    this.setListeners()
+  }
+
+  private updateTournamentUI(tournament: Tournament) {
     this.organizers = this.filterOrganizers(tournament);
     this.referees = this.filterReferees(tournament);
+    this.teams = tournament.teams;
   }
 
-  filterOrganizers(tournament: Tournament): string[] {
+  private filterOrganizers(tournament: Tournament): string[] {
     return tournament.users.filter(user => user.role === "ORGANIZER").map(user => user.name + " " + user.lastName);
   }
 
-  filterReferees(tournament: Tournament): Referee[] {
+  private filterReferees(tournament: Tournament): Referee[] {
     return tournament.users.filter(user => user.role === "REFEREE").map((user: User) => user as Referee);
   }
 
@@ -60,6 +60,9 @@ export class TournamentManagementComponent implements OnInit {
   // }
 
   setListeners() {
+    this.teamServ.newTeam$.subscribe({
+      next:(newTeam:Team) => this.teams.push(newTeam)
+    })
     // this.tempService.onNuevoEquipoAsignado().subscribe(() => {
     //   this.getTeams(this.tournamentId);
     // });

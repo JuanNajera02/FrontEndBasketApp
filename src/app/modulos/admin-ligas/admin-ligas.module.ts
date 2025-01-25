@@ -9,7 +9,6 @@ import { NavBarModule } from '../nav-bar/nav-bar.module';
 import { AsignarArbitroComponent } from './asignar-arbitro/asignar-arbitro.component';
 import { ModificarLigaComponent } from './modificar-liga/modificar-liga.component';
 import { CrearTemporadaComponent } from './crear-temporada/crear-temporada.component';
-import { AgregarEquipoComponent } from './agregar-equipo/agregar-equipo.component';
 import { AgregarArbitroPartidoComponent } from './agregar-arbitro-partido/agregar-arbitro-partido.component';
 import { AgregarFechaPartidoComponent } from './agregar-fecha-partido/agregar-fecha-partido.component';
 import { FooterModule } from '../footer/footer.module';
@@ -24,7 +23,6 @@ import { DirectiveModule } from 'src/app/directives/directive.module';
     AsignarArbitroComponent,
     ModificarLigaComponent,
     CrearTemporadaComponent,
-    AgregarEquipoComponent,
     AgregarArbitroPartidoComponent,
     AgregarFechaPartidoComponent,
     CaracteristicasPartidosComponent

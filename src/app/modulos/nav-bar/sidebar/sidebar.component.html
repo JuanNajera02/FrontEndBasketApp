@@ -8,10 +8,24 @@
       </mat-list-item>
       <!-- Expandable Teams Section -->
 
-      <mat-list-item class="nav-item">
-        <mat-icon class="nav-icon">inbox</mat-icon>
-        <span>My Contests</span>
-      </mat-list-item>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon class="nav-icon">view_kanban</mat-icon>
+              <span>My Tournaments</span>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <mat-nav-list class="nested-nav-list">
+            <mat-list-item *ngFor="let tournament of tournaments" class="nested-nav-item" (click)="visitTournament(tournament.id)">
+              <mat-icon class="nav-icon">group</mat-icon>
+              <span >{{ tournament.name }}</span>
+            </mat-list-item>
+          </mat-nav-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+
 
       <mat-accordion>
         <mat-expansion-panel>

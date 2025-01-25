@@ -1,11 +1,11 @@
-import { AddTournamentResponse, emptyTournament } from "./../interface";
+import { AddTournamentResponse } from "./../interface";
 import { Component, Input, OnInit } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 import { AddTournament, Tournament, TournamentType } from "../interface";
-import { CreateTournamentService } from "./create-tournament.service";
 import { getContestTypeName } from "../utils";
 import { TournamentService } from "../tournament.service";
 import { ActivatedRoute, Router } from "@angular/router";
+import { authService } from "src/app/services/authenticateService/auth.service";
 
 @Component({
   selector: "app-create-tournament",
@@ -17,22 +17,35 @@ export class CreateTournamentComponent implements OnInit {
   // IF UNDEFINED, IT INDICATES A NEW TOURNAMENT; OTHERWISE, IT'S FOR EDITING.
   @Input() tournament?: Tournament;
 
+  // PUBLIC
   tournamentTypes = Object.values(TournamentType); // Extract enum values
   public createTournament!: FormGroup;
+  public isReadOnly: boolean = false;
+  // PRIVATE
 
-  constructor(private createTournamentServ: CreateTournamentService, private tournamentServ: TournamentService, private route: ActivatedRoute, private router: Router) { }
+  constructor(
+    private tournamentServ: TournamentService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private authServ: authService
+  ) { }
 
   ngOnInit(): void {
 
-    const tournament: Tournament = this.route.snapshot.parent?.data["tournamentData"];
-    if (tournament) {
-      this.tournament = tournament;
-    }
+    this.route.parent?.data.subscribe((tournamentObj: any) => {
 
-    this.createTournament = this.createTournamentServ.createTournamentForm();
-    if (this.isEditing()) {
-      this.patchTournament();
-    }
+      const tournament: Tournament =  tournamentObj.tournament;
+      if (tournament) {
+        this.tournament = tournament;
+      }
+
+      this.createTournament = this.tournamentServ.createTournamentForm();
+      if (this.isEditing()) {
+        this.isReadOnly = !this.tournamentServ.canEditCreateTournamentComponent(this.authServ.getUserId(),this.tournament!);
+        this.patchTournament();
+      }
+    });
+
   }
 
   // IF THE INPUT TOURNAMENT IT'S NOT UNDEFINED THEN IT'S EDITING
@@ -48,11 +61,12 @@ export class CreateTournamentComponent implements OnInit {
   onSubmit(): void {
     if (this.createTournament.invalid) {
       this.createTournament.markAllAsTouched();
+      return;
     }
 
     const newTournament: AddTournament = {
       tournament: this.createTournament.value,
-      userId: "1"
+      userId: this.authServ.getUserId()
     };
 
     if (this.isEditing()) {

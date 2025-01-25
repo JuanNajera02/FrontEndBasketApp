@@ -1,0 +1,95 @@
+/*  */
+.add-player-to-team-container{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+.add-player-form{
+  display: flex;
+  flex-direction: column;
+  border-top: 0.5px solid #e7e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex: 0.4;
+  margin-right: 10px;
+  padding: 10px;
+
+
+}
+.player-table-container{
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex: 0.6;
+}
+
+.add-player-form, .player-table-container{
+  max-height: 600px;
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.close-icon{
+  cursor: pointer;
+}
+header h1{
+  margin: 0;
+}
+/* Estilos para el encabezado "Agregar Árbitro" */
+.add-player-to-team-container header h1 {
+  font-size: 1.5rem;
+  /* text-align: center; */
+  color: #000000; /* Color del texto del encabezado */
+}
+
+
+form > * {
+  margin-top: 13px;
+}
+.input-wrapper{
+  margin-top: 3px;
+}
+label {
+  margin-left: 5px;
+}
+
+/* Estilos para el fondo y borde del componente */
+.add-player-to-team-container {
+  background-color: #f7f7f5; /* Color de fondo del componente */
+}
+
+.mensaje-estilo {
+  color: #080708; /* Color del texto del mensaje */
+  font-size: 1rem; /* Tamaño de fuente del mensaje */
+  text-align: center; /* Alineación del texto */
+  margin-top: 20px; /* Espacio superior */
+  font-weight: bold;
+  text-transform: uppercase;
+
+}
+.add-player-to-team-container form mat-label {
+  color: #080708; /* Color del texto del input */
+}
+
+.btn-save{
+  margin-left: auto;
+  margin-top: auto;
+}
+
+.body{
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .body{
+    flex-direction: column;
+    max-height: 80vh;
+  }
+
+  .add-player-form{
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+}

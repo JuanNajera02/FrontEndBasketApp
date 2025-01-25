@@ -1,0 +1,13 @@
+button {
+  background-color: #F26419;
+  color: #080708;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 7px;
+  max-width: 150px;
+  white-space: nowrap;
+  min-width: 100px; 
+}

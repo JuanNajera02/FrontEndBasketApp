@@ -68,4 +68,8 @@ export class authService {
     return this.http.get<string>(url + "/usuarios/obtenerTipoUser?usuario="+usuario)
   }
 
+  getUserId():string{
+    return "1"
+  }
+
 }

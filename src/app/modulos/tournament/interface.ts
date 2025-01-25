@@ -3,6 +3,11 @@ export enum TournamentType {
   DoubleElimination = "DoubleElimination"
 }
 
+export interface Team {
+  id:   string;
+  name: string;
+}
+
 export interface Tournament {
   id:          string;
   name:        string;
@@ -11,7 +16,7 @@ export interface Tournament {
   description: string;
   rules:       string;
   users:       User[];
-
+  teams:       Team[];
 }
 
 export const emptyTournament: Tournament = {
@@ -21,13 +26,14 @@ export const emptyTournament: Tournament = {
   estado:      "",
   description: "",
   rules:       "",
-  users: [],
+  users:       [],
+  teams:       []
 };
 
 export interface User {
-  id:       number;
+  id:       string;
   username: string;
-  role:     string;
+  role:     "ORGANIZER" | "REFEREE";
   name:     string;
   lastName: string;
 }

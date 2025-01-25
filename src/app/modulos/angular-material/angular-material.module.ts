@@ -19,6 +19,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [],
@@ -44,7 +45,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatSidenavModule,
     MatExpansionModule,
     MatTooltipModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatSnackBarModule
   ]
 })
 export class AngularMaterialModule { }

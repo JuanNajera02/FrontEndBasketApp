@@ -1,9 +1,13 @@
-import { Referee, Team } from "./../../admin-ligas/temporada-caracteriticas/interfaces";
+import { Referee } from "./../../admin-ligas/temporada-caracteriticas/interfaces";
 import { TemporadasService } from "./../../admin-ligas/adminLigasService/temporadas.service";
-import { AgregarEquipoComponent } from "./../../admin-ligas/agregar-equipo/agregar-equipo.component";
+import { AddTeamComponent } from "../../teams/add-team/add-team.component";
 import { AsignarArbitroComponent } from "./../../admin-ligas/asignar-arbitro/asignar-arbitro.component";
-import { Component, Input } from "@angular/core";
+import { Component, inject, Input } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
+import { Team } from "../interface";
+import { LinkService } from "src/app/services/linkService/link.service";
+import { AddPlayersToTeamLinkComponent } from "../../teams/add-players-to-team-link/add-players-to-team-link.component";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-side-nav-contest-management",
@@ -11,16 +15,23 @@ import { MatDialog } from "@angular/material/dialog";
   styleUrls: ["./side-nav-contest-management.component.css"]
 })
 export class SideNavContestManagementComponent {
-  constructor(public dialog: MatDialog, public tempService: TemporadasService) { }
+
+  constructor(
+    private dialog: MatDialog,
+    private tempService: TemporadasService,
+    private LinkService: LinkService,
+    private router: Router
+  ) { }
 
   @Input() teams: Team[] = [];
   @Input() referees: Referee[] = [];
-  @Input() seasonId: string = "";
+  @Input() tournamentId: string = "";
   @Input() organizers: string[] = [];
 
   addTeam($event: Event): void {
-    this.dialog.open(AgregarEquipoComponent, {
-      width: "250px",
+    this.dialog.open(AddTeamComponent, {
+      panelClass: "add-team-dialog",
+      data: { tournamentId: this.tournamentId }
     });
     $event.stopPropagation();
   }
@@ -29,7 +40,7 @@ export class SideNavContestManagementComponent {
     // eliminarEquipoTemp(idTemporada: number, nombreEquipo: string) {
     this.tempService.eliminarEquipoDeTemporada(seasonId, teamToRemove).subscribe({
       next: () => {
-        this.teams = this.teams.filter(team => team.nombreEquipo !== teamToRemove);
+        this.teams = this.teams.filter(team => team.name !== teamToRemove);
       },
       error: (e) => {
         alert(e);
@@ -55,6 +66,21 @@ export class SideNavContestManagementComponent {
       }
     });
     $event.stopPropagation();
+  }
+
+  showPlayersTeam($event: MouseEvent,teamId: string) {
+    console.log("teamId", teamId);
+      this.router.navigate([`tournament/${this.tournamentId}/team/${teamId}`]);
+  }
+
+
+  copyLink($event: Event, teamId: string, tournamentId: string) {
+    this.dialog.open(AddPlayersToTeamLinkComponent, {
+      panelClass: "add-team-dialog",
+      data: { teamId, tournamentId }
+    });
+
+    $event.stopPropagation()
   }
 
 }

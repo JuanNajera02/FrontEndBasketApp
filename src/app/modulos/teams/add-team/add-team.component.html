@@ -1,0 +1,36 @@
+<mat-dialog-content >
+  <header>
+    <h1>Team</h1>
+    <mat-icon (click)="closeModal()" class="close-icon">close</mat-icon>
+  </header>
+
+  <form [formGroup]="addTeamForm" (ngSubmit)="addTeam()">
+
+    <div class="form-field">
+      <label for="name">Name:</label>
+      <div class="input-wrapper">
+        <input  type="text" id="name" formControlName="name" placeholder="Enter  name" />
+        <!-- <div *ngIf="name.touched && name.errors" class="errors" id="name-errors">
+          <small *ngIf="name.touched && name.errors?.['required']">name is required.</small>
+          <small *ngIf="name.touched && name.errors?.['minlength']">name must be at least 1 character long.</small>
+        </div> -->
+      </div>
+    </div>
+
+
+    <div class="form-field">
+      <label for="name">Email:</label>
+      <div class="input-wrapper">
+        <input  type="text" id="name" formControlName="email" placeholder="Enter email" />
+        <!-- <div *ngIf="name.touched && name.errors" class="errors" id="name-errors">
+          <small *ngIf="name.touched && name.errors?.['required']">name is required.</small>
+          <small *ngIf="name.touched && name.errors?.['minlength']">name must be at least 1 character long.</small>
+        </div> -->
+      </div>
+    </div>
+
+    <span class="mensaje-estilo" *ngIf="mensaje">{{ mensaje }}</span> <!-- Muestra el mensaje si existe -->
+    <button type="submit">Guardar</button>
+  </form>
+
+</mat-dialog-content>

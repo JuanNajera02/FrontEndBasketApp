@@ -14,18 +14,20 @@
               <mat-icon class="nav-icon">view_kanban</mat-icon>
               <span>Teams ({{teams.length}})</span>
             </mat-panel-title>
-            <mat-icon matTooltip="add new team" matTooltipPosition="above"  class="nav-icon add-team" (click)="addTeam($event)">group_add</mat-icon>
+            <mat-icon matTooltip="add new team" matTooltipPosition="above" class="nav-icon add-team" (click)="addTeam($event)">group_add</mat-icon>
           </mat-expansion-panel-header>
 
-
           <mat-nav-list class="nested-nav-list">
-            <mat-list-item *ngFor="let team of teams" class="nested-nav-item">
-              <div class="container-list-item">
+            <mat-list-item *ngFor="let team of teams" class="nested-nav-item" routerLinkActive="active" >
+              <div class="container-list-item" [routerLink]="['/tournament', tournamentId, 'team', team.id]">
                 <div class="team-name">
                   <mat-icon class="nav-icon">groups</mat-icon>
-                  <span>{{ team.nombreEquipo }}</span>
+                  <span>{{ team.name }}</span>
                 </div>
-                <mat-icon class="nav-icon" (click)="removeTeam($event,seasonId,team.nombreEquipo)">delete</mat-icon>
+                <div class="icons">
+                  <mat-icon class="nav-icon" (click)="copyLink($event, team.id, tournamentId)">link</mat-icon>
+                  <mat-icon class="nav-icon" (click)="removeTeam($event, tournamentId, team.name)">delete</mat-icon>
+                </div>
               </div>
             </mat-list-item>
           </mat-nav-list>
@@ -51,7 +53,7 @@
                   <mat-icon class="nav-icon">person</mat-icon>
                   <span>{{ referee.name + " " + referee.lastName }}</span>
                 </div>
-                <mat-icon class="nav-icon" (click)="removeReferee($event,seasonId, referee.username)">delete</mat-icon>
+                <mat-icon class="nav-icon" (click)="removeReferee($event,tournamentId, referee.username)">delete</mat-icon>
               </div>
             </mat-list-item>
           </mat-nav-list>

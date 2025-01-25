@@ -15,7 +15,8 @@ main {
 }
 
 input,
-select,textarea {
+select,
+textarea {
   display: flex;
   align-items: center;
   font-size: 14px;
@@ -47,9 +48,11 @@ select {
 .form-field .input-wrapper {
   flex-grow: 1;
 }
-label{
+
+label {
   width: 122px
 }
+
 .errors {
   min-height: 1.5rem;
   /* Adjust height to fit your small error messages */
@@ -74,16 +77,20 @@ label{
   flex-basis: 0;
   min-width: 300px;
 }
-.about-tournament,.rules{
+
+.about-tournament,
+.rules {
   height: 80px;
   width: 100%;
 }
-.google-map-container{
+
+.google-map-container {
   margin-top: 20px;
   display: flex;
   justify-content: end;
 }
-.save{
+
+.save {
   margin-top: 10px;
   padding: 10px 20px;
   background-color: #4CAF50;
@@ -92,34 +99,50 @@ label{
   border-radius: 5px;
   cursor: pointer;
 }
+
 .save:hover {
   background-color: #45a049;
 }
-header{
+
+header {
   font-size: 20px;
   margin-bottom: 10px;
 }
 
-input{
-  border: 0px ;
+input[readonly],
+textarea[readOnly] {
+  outline: none;
+  cursor: default;
+  box-shadow: none;
 }
+
+.readonly {
+  pointer-events: none;
+  box-shadow: none;
+  appearance: none;
+}
+
 @media (max-width: 576px) {
-  .form-field{
+  .form-field {
     flex-direction: column;
     padding-top: 5px;
     padding-bottom: 5px;
   }
-  .container-form-fields{
+
+  .container-form-fields {
     padding-top: 5px;
     padding-bottom: 5px;
   }
-  .input-wrapper{
+
+  .input-wrapper {
     width: 100%
   }
-  .container-form-fields{
+
+  .container-form-fields {
     gap: 0
   }
-  label{
+
+  label {
     width: 100%;
   }
 }

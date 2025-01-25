@@ -1,0 +1,34 @@
+<mat-dialog-content >
+  <header class="link-header">
+    <h1>Share Link</h1>
+    <mat-icon (click)="closeModal()" class="close-icon">close</mat-icon>
+  </header>
+
+  <section class="instructions-container">
+    <header class="instructions-header">
+      <mat-icon class="instructions-icon nav-icon">info</mat-icon>
+      <h3 class="instructions-title">Instructions</h3>
+    </header>
+
+    <ul class="instructions-list">
+      <li class="instructions-list-item">
+        Send the link to anyone you want to add players.
+      </li>
+      <li class="instructions-list-item">
+        Once they open the link, they'll see the form to add their players directly.
+      </li>
+      <li class="instructions-list-item">
+        No account needed.
+      </li>
+    </ul>
+  </section>
+
+  <section class="link-section" >
+    <header>
+      <h4>Link</h4>
+    </header>
+    <div (click)="copyLink()" class="link">{{link}}</div>
+    <!-- <button type="submit">Guardar</button> -->
+  </section>
+
+</mat-dialog-content>
